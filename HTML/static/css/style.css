@@ -1,0 +1,100 @@
+*{
+    color: white;
+}
+body{
+    background-color: black;
+}
+fieldset{
+    border: 2px solid rgb(255, 104, 3);
+    border-radius: 3rem;
+    margin: 20%;
+    text-align: center;
+    transition: 0.2s;
+    animation: glow 3s infinite ease-in-out;
+}
+fieldset:hover{
+    background-color: rgba(0, 0, 0, 0);
+    border: 5px rgb(255, 77, 0);
+    box-shadow:
+    0 0 3em #ff7300f9,
+    0 0 0.2em 2em hsl(35, 98%, 51%),
+    0 0 10em 3em #ff9900;
+    transition: 0.2s;
+}
+input{
+    margin:5px;
+    border-radius: 0.3rem;
+    background-color: rgba(0, 0, 0, 0);
+}
+input::after{
+    background-color: black;
+    color: white;
+}
+h1{
+    font-family: Arial, Helvetica, sans-serif;
+    color: transparent;
+    -webkit-text-stroke: rgb(255, 255, 255) 1px;
+    font-size: 100px;
+
+}
+#btn{
+    background-color: rgb(235, 109, 6);
+    color: white;
+    border-radius: 0.5rem;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+#btn:active{
+    background-color: red;
+}
+#msg{
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: oblique;
+}
+#ard{
+    border: 20px dashed #dfdfdf;
+    margin: 30%;
+    animation: snk 5s infinite ease-in-out;
+    background-color: rgba(0, 128, 0, 0);
+}
+/* #in{
+    background-color: rgb(252, 113, 0);
+} */
+@keyframes snk {
+    0%{
+        border: dashed;
+        transition:1s ease-in-out;
+    }
+    50%{
+        border: dotted;
+        transition:1s ease-in-out;
+    }
+    70%{
+        border: solid;
+        transition:1s ease-in-out;
+    }
+    100%{
+        border: dashed;
+        transition:1s ease-in-out;
+    }
+    
+}
+@keyframes glow {
+    0%{
+    border: 2px #ff3300;
+
+    }
+    50%{
+    border: 5px rgb(255, 77, 0);
+    box-shadow:
+    0 0 3em #ff7300f9,
+    0 0 0.2em 2em hsl(35, 98%, 51%),
+    0 0 10em 3em #ff9900;
+    transition: 0.2s;
+    }
+    100%{
+        border: 2px #ff3300;
+    }
+}

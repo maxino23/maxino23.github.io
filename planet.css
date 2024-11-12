@@ -16,8 +16,8 @@ body{
     border-radius: 50%;
     box-shadow: 
     0 0 5em #fed84c80,
-    0 0 20em 4em #e8a55233,
-    0 0 55em 8em #ff4d4d1a;
+    0 0 2em 4em #e8a55233,
+    0 0 2em 0em #ff4d4d1a;
    position: relative; 
 }
 

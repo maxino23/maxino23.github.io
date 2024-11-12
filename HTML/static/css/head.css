@@ -1,0 +1,56 @@
+body{
+    background-color: black;
+}
+#head{
+    margin: 30%;
+    border: 2px solid yellow;
+    border-radius: 100%;
+}
+.eye{
+    border: 2px solid yellow;
+    border-radius: 100%;
+    height: 50px;
+    width: 30px;
+    position: inherit;
+    margin-top: 70px;
+    margin: 50px;
+    animation: eye 5s infinite ease-in-out;
+}
+#mouth{
+    width: 70px;
+    height: 1px;
+    border: 1px solid yellow;
+    margin-bottom: 20px;
+    animation: exp 5s infinite ease-in-out;
+}
+.balls{
+    background-color: yellow;
+    height: 20px;
+    position: relative;
+    border-radius: 20rem;
+}
+@keyframes eye{
+    0%{
+        border-radius: 1rem;
+    }
+    50%{
+        height: 1px;
+    }
+    70%{
+        height: 25px;
+        border-radius: 10rem;
+        background-color: yellow;
+    }
+}
+@keyframes exp{
+    0%{
+        border-radius: 1rem;
+    }
+    80%{
+        height: 1px;
+    }
+    90%{
+        height: 50px;
+        border-radius: 10rem;
+    }
+}

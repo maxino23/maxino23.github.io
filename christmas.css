@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: rgb(209, 2, 2);
+}
+.c1{
+    transition: 2S;
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    background-color: green;
+}
+button:active{
+    transform: rotate(30deg);
+    transition: 0.1s;
+    transform-origin: left;
+}
+button:after{
+    content-visibility: hidden;
+}
+button{
+    /* justify-content: center;
+    display: flex;
+    align-items: center;
+    text-align: center;*/
+    margin-top: 27%;
+    left: 48%;
+    position: absolute; 
+    text-align: center;
+    z-index: 3;
+    padding:1w0px 20px 10px 20px ;
+    border-radius: 0.5rem;
+    font-size: 30px;
+    color: white;
+    background-color: green;
+}
+.c2{
+    transition: 2S;
+    right: 0px;
+    height: 100vh;
+    width: 50%;
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    background-color: rgb(0, 255, 0);
+}
+p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    font-size: 40px;
+    color: white;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    animation: txt 3s ease-in-out infinite;
+}
+@keyframes txt {
+    0%{
+
+    }   
+    20%{
+        font-size: 70px;
+    } 
+    50%{
+
+    }
+    70%{
+
+    }
+}

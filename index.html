@@ -1,1383 +1,1789 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARDDYS | Photography & Videography Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Dollarman Travel and Tour Consultancy</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,300;1,9..40,400&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['"Playfair Display"', 'serif'],
+                        body: ['"DM Sans"', 'sans-serif'],
+                        accent: ['"Cormorant Garamond"', 'serif'],
+                    },
+                    colors: {
+                        sand: {
+                            50: '#FDFBF7',
+                            100: '#F8F4EC',
+                            200: '#F0E8D8',
+                            300: '#E4D5BC',
+                            400: '#D4C0A0',
+                            500: '#C4AA82',
+                            600: '#A68B62',
+                            700: '#8A7050',
+                            800: '#6E5840',
+                            900: '#4A3A2A',
+                        },
+                        ocean: {
+                            50: '#F0F6F7',
+                            100: '#D9E8EB',
+                            200: '#B5D2D9',
+                            300: '#8AB4BE',
+                            400: '#5E949F',
+                            500: '#3D7884',
+                            600: '#2E5E68',
+                            700: '#234A52',
+                            800: '#1A383F',
+                            900: '#11262B',
+                        },
+                        sunset: {
+                            300: '#E8B89D',
+                            400: '#D99B7A',
+                            500: '#C97D58',
+                            600: '#B0623E',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        * {
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #e74c3c;
-            --accent-color: #3498db;
-            --light-color: #ecf0f1;
-            --dark-color: #1a252f;
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: #f9f9f9;
-            color: #333;
-            line-height: 1.6;
+            font-family: 'DM Sans', sans-serif;
+            background-color: #FDFBF7;
+            color: #2D2D2D;
+            overflow-x: hidden;
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
+        ::-webkit-scrollbar {
+            width: 6px;
         }
 
-        /* Header & Navigation */
-        header {
-            background-color: rgba(26, 37, 47, 0.95);
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        ::-webkit-scrollbar-track {
+            background: #F8F4EC;
         }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
+        ::-webkit-scrollbar-thumb {
+            background: #C4AA82;
+            border-radius: 3px;
         }
 
-        .logo {
-            color: white;
-            font-size: 28px;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        .logo span {
-            color: var(--secondary-color);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 30px;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--secondary-color);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 24px;
-            cursor: pointer;
-            z-index: 1001;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://i.imgur.com/hBSVAiB.png');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            text-align: center;
-            color: white;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            opacity: 0.9;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            background-color: #c0392b;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        /* Section Styles */
-        section {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
+        /* ---- HERO ---- */
+        .hero-section {
             position: relative;
-            display: inline-block;
-            padding-bottom: 15px;
-        }
-
-        .section-title h2:after {
-            content: '';
-            position: absolute;
-            width: 70px;
-            height: 3px;
-            background-color: var(--secondary-color);
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        /* Portfolio Section */
-        .portfolio-filter {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            background: none;
-            border: none;
-            padding: 10px 20px;
-            margin: 0 5px 10px;
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--primary-color);
-            cursor: pointer;
-            transition: all 0.3s;
-            border-radius: 30px;
-        }
-
-        .filter-btn.active, .filter-btn:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 25px;
-        }
-
-        .portfolio-item {
-            border-radius: 10px;
+            min-height: 100vh;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            position: relative;
-            height: 300px;
         }
 
-        .portfolio-item img, .portfolio-item video {
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+
+        .hero-bg img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
-        }
-
-        .portfolio-item:hover img, .portfolio-item:hover video {
             transform: scale(1.05);
+            animation: heroZoom 20s ease-in-out infinite alternate;
         }
 
-        .portfolio-overlay {
+        @keyframes heroZoom {
+            0% { transform: scale(1.05); }
+            100% { transform: scale(1.15); }
+        }
+
+        .hero-overlay {
             position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-            color: white;
-            padding: 30px 20px 20px;
-            transform: translateY(20px);
-            opacity: 0;
-            transition: all 0.3s;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(17, 38, 43, 0.5) 0%,
+                rgba(17, 38, 43, 0.3) 30%,
+                rgba(17, 38, 43, 0.15) 55%,
+                rgba(17, 38, 43, 0.4) 100%
+            );
+            z-index: 1;
         }
 
-        .portfolio-item:hover .portfolio-overlay {
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title-line {
+            overflow: hidden;
+        }
+
+        .hero-title-line span {
+            display: inline-block;
+            transform: translateY(100%);
+            opacity: 0;
+            animation: slideUpReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes slideUpReveal {
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .hero-subtitle {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.6s forwards;
+        }
+
+        .hero-cta {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 0.9s forwards;
+        }
+
+        .hero-scroll {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease 1.2s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ---- NAV ---- */
+        .nav-main {
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nav-main.scrolled {
+            background: rgba(253, 251, 247, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 1px 40px rgba(0,0,0,0.06);
+        }
+
+        .nav-main.scrolled .nav-logo-text {
+            color: #11262B;
+        }
+
+        .nav-main.scrolled .nav-link {
+            color: #4A3A2A;
+        }
+
+        .nav-main.scrolled .nav-link::after {
+            background: #C4AA82;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 1.5px;
+            background: #FDFBF7;
+            transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* ---- SECTION REVEAL ---- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
+        .reveal-delay-1 { transition-delay: 0.1s; }
+        .reveal-delay-2 { transition-delay: 0.2s; }
+        .reveal-delay-3 { transition-delay: 0.3s; }
+        .reveal-delay-4 { transition-delay: 0.4s; }
 
-        .about-img {
-            border-radius: 10px;
+        /* ---- DESTINATION CARDS ---- */
+        .dest-card {
+            position: relative;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+            cursor: pointer;
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .about-img img {
-            width: 100%;
-            height: auto;
-            display: block;
+        .dest-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px rgba(17, 38, 43, 0.15);
         }
 
-        .about-text h3 {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
+        .dest-card img {
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .skills {
-            margin-top: 30px;
+        .dest-card:hover img {
+            transform: scale(1.08);
         }
 
-        .skill-item {
-            margin-bottom: 20px;
+        .dest-card-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                transparent 30%,
+                rgba(17, 38, 43, 0.7) 100%
+            );
+            transition: all 0.5s ease;
         }
 
-        .skill-name {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 5px;
+        .dest-card:hover .dest-card-overlay {
+            background: linear-gradient(
+                180deg,
+                rgba(17, 38, 43, 0.1) 0%,
+                rgba(17, 38, 43, 0.8) 100%
+            );
         }
 
-        .skill-bar {
-            height: 10px;
-            background-color: #ddd;
-            border-radius: 5px;
+        .dest-card-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 28px;
+            transform: translateY(20px);
+            opacity: 0.9;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .dest-card:hover .dest-card-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .dest-card .dest-desc {
+            max-height: 0;
             overflow: hidden;
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .skill-level {
-            height: 100%;
-            background-color: var(--accent-color);
+        .dest-card:hover .dest-desc {
+            max-height: 80px;
+            opacity: 1;
+            margin-top: 8px;
         }
 
-        /* Services Section */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
+        /* ---- SERVICE CARDS ---- */
         .service-card {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            text-align: center;
-            transition: transform 0.3s;
+            position: relative;
+            padding: 48px 36px;
+            border-radius: 20px;
+            background: #fff;
+            border: 1px solid rgba(196, 170, 130, 0.15);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #C4AA82, #3D7884);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-6px);
+            box-shadow: 0 24px 48px rgba(17, 38, 43, 0.08);
+            border-color: rgba(196, 170, 130, 0.3);
         }
 
-        .service-icon {
-            font-size: 40px;
-            color: var(--secondary-color);
-            margin-bottom: 20px;
-        }
-
-        /* NEW: Pricing Section */
-        #pricing {
-            background-color: #f5f7fa;
-        }
-
-        .package-toggle {
+        .service-icon-wrap {
+            width: 64px;
+            height: 64px;
+            border-radius: 16px;
             display: flex;
+            align-items: center;
             justify-content: center;
-            margin-bottom: 40px;
-            flex-wrap: wrap;
+            background: linear-gradient(135deg, #F0E8D8, #D9E8EB);
+            transition: all 0.5s ease;
         }
 
-        .package-toggle-btn {
-            background: none;
-            border: 2px solid var(--primary-color);
-            padding: 12px 25px;
-            margin: 0 10px 10px;
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--primary-color);
-            cursor: pointer;
-            transition: all 0.3s;
-            border-radius: 30px;
-        }
-
-        .package-toggle-btn.active, .package-toggle-btn:hover {
-            background-color: var(--primary-color);
-            color: white;
-            border-color: var(--primary-color);
-        }
-
-        .pricing-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-
-        .pricing-card {
-            background-color: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s;
-            position: relative;
-        }
-
-        .pricing-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
-        }
-
-        .pricing-card.featured {
-            border: 3px solid var(--secondary-color);
+        .service-card:hover .service-icon-wrap {
+            background: linear-gradient(135deg, #C4AA82, #3D7884);
             transform: scale(1.05);
         }
 
-        .pricing-card.featured:hover {
-            transform: scale(1.05) translateY(-10px);
+        .service-card:hover .service-icon-wrap i {
+            color: #fff;
         }
 
-        .featured-badge {
+        /* ---- TESTIMONIAL ---- */
+        .testimonial-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(196, 170, 130, 0.12);
+            transition: all 0.5s ease;
+        }
+
+        .testimonial-card:hover {
+            box-shadow: 0 20px 50px rgba(17, 38, 43, 0.08);
+        }
+
+        /* ---- GALLERY ---- */
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item::after {
+            content: '';
             position: absolute;
-            top: 20px;
-            right: -30px;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 8px 40px;
-            font-size: 14px;
-            font-weight: 600;
-            transform: rotate(45deg);
+            inset: 0;
+            background: rgba(17, 38, 43, 0);
+            transition: background 0.4s ease;
+        }
+
+        .gallery-item:hover::after {
+            background: rgba(17, 38, 43, 0.2);
+        }
+
+        .gallery-zoom {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            width: 48px;
+            height: 48px;
+            background: rgba(255,255,255,0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .gallery-item:hover .gallery-zoom {
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        /* ---- BUTTONS ---- */
+        .btn-primary {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: linear-gradient(135deg, #3D7884, #2E5E68);
+            color: #fff;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #2E5E68, #234A52);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(61, 120, 132, 0.3);
+        }
+
+        .btn-primary:hover::before {
+            opacity: 1;
+        }
+
+        .btn-primary span,
+        .btn-primary i {
+            position: relative;
             z-index: 1;
         }
 
-        .pricing-header {
-            padding: 40px 30px 30px;
-            text-align: center;
-            background: linear-gradient(135deg, var(--primary-color), #34495e);
-            color: white;
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            border: 1.5px solid rgba(253, 251, 247, 0.4);
+            color: #FDFBF7;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+            background: transparent;
         }
 
-        .pricing-card.featured .pricing-header {
-            background: linear-gradient(135deg, var(--secondary-color), #e74c3c);
+        .btn-outline:hover {
+            background: rgba(253, 251, 247, 0.12);
+            border-color: rgba(253, 251, 247, 0.6);
+            transform: translateY(-2px);
         }
 
-        .pricing-header h3 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
+        .btn-sand {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: linear-gradient(135deg, #C4AA82, #A68B62);
+            color: #fff;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            border: none;
+            cursor: pointer;
+            position: relative;
         }
 
-        .price {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
+        .btn-sand::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, #A68B62, #8A7050);
+            opacity: 0;
+            transition: opacity 0.4s ease;
         }
 
-        .price span {
-            font-size: 1.2rem;
-            font-weight: 400;
+        .btn-sand:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(196, 170, 130, 0.3);
         }
 
-        .price-description {
-            font-size: 1rem;
-            opacity: 0.9;
+        .btn-sand:hover::before {
+            opacity: 1;
         }
 
-        .pricing-features {
-            padding: 30px;
+        .btn-sand span,
+        .btn-sand i {
+            position: relative;
+            z-index: 1;
         }
 
-        .pricing-features ul {
-            list-style: none;
+        /* ---- MARQUEE ---- */
+        .marquee-track {
+            display: flex;
+            animation: marquee 35s linear infinite;
+            width: max-content;
         }
 
-        .pricing-features li {
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* ---- LIGHTBOX ---- */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(17, 38, 43, 0.95);
+            z-index: 200;
             display: flex;
             align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
         }
 
-        .pricing-features li:last-child {
-            border-bottom: none;
+        .lightbox.active {
+            opacity: 1;
+            pointer-events: all;
         }
 
-        .pricing-features i {
-            margin-right: 15px;
-            font-size: 18px;
+        .lightbox img {
+            max-width: 90vw;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 8px;
+            transform: scale(0.9);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        .pricing-features i.fa-check {
-            color: #27ae60;
+        .lightbox.active img {
+            transform: scale(1);
         }
 
-        .pricing-features i.fa-times {
-            color: #e74c3c;
-        }
-
-        .pricing-footer {
-            padding: 0 30px 40px;
-            text-align: center;
-        }
-
-        /* Contact Section */
-        .contact-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 50px;
-        }
-
-        .contact-info {
+        /* ---- MOBILE MENU ---- */
+        .mobile-menu {
+            position: fixed;
+            inset: 0;
+            background: #FDFBF7;
+            z-index: 150;
             display: flex;
             flex-direction: column;
-            gap: 20px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .contact-icon {
-            width: 50px;
-            height: 50px;
-            background-color: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            gap: 32px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
         }
 
-        .contact-form input,
-        .contact-form textarea,
-        .contact-form select {
+        .mobile-menu.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        /* ---- PARALLAX IMAGE ---- */
+        .parallax-img {
+            will-change: transform;
+        }
+
+        /* ---- STAT COUNTER ---- */
+        .stat-number {
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* ---- FORM ---- */
+        .form-input {
             width: 100%;
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
+            padding: 16px 20px;
+            background: #fff;
+            border: 1.5px solid rgba(196, 170, 130, 0.2);
+            border-radius: 12px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            color: #2D2D2D;
+            transition: all 0.3s ease;
+            outline: none;
         }
 
-        .contact-form textarea {
-            height: 150px;
-            resize: vertical;
+        .form-input:focus {
+            border-color: #3D7884;
+            box-shadow: 0 0 0 4px rgba(61, 120, 132, 0.08);
         }
 
-        /* Form submission success/error messages */
-        .form-message {
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            text-align: center;
-            display: none;
+        .form-input::placeholder {
+            color: #A0A0A0;
         }
 
-        .form-message.success {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-            display: block;
-        }
-
-        .form-message.error {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-            display: block;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark-color);
-            color: white;
-            padding: 60px 0 30px;
-        }
-
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-logo {
-            font-size: 24px;
-            font-weight: 700;
-            margin-bottom: 20px;
-        }
-
-        .footer-logo span {
-            color: var(--secondary-color);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .social-links a {
+        /* ---- TESTIMONIAL ARROWS ---- */
+        .test-arrow {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 1.5px solid rgba(196, 170, 130, 0.3);
+            background: #fff;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            text-decoration: none;
-            transition: all 0.3s;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: #4A3A2A;
         }
 
-        .social-links a:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-5px);
+        .test-arrow:hover {
+            background: #3D7884;
+            border-color: #3D7884;
+            color: #fff;
+            transform: scale(1.08);
         }
 
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 14px;
-            opacity: 0.8;
+        /* ---- DECORATIVE ELEMENTS ---- */
+        .deco-line {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, #C4AA82, #3D7884);
         }
 
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .about-img {
-                order: -1;
-            }
-            
-            .pricing-card.featured {
-                transform: scale(1);
-            }
-            
-            .pricing-card.featured:hover {
-                transform: translateY(-10px);
-            }
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #3D7884;
         }
 
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 0;
-                left: -100%;
-                background-color: var(--dark-color);
-                width: 80%;
-                max-width: 300px;
-                height: 100vh;
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 80px 30px 30px;
-                transition: left 0.3s ease-in-out;
-                box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
-                z-index: 1000;
-            }
-            
-            .nav-links.active {
-                left: 0;
-            }
-            
-            .nav-links li {
-                margin: 15px 0;
-                width: 100%;
-            }
-            
-            .nav-links a {
-                display: block;
-                padding: 10px 0;
-                font-size: 18px;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            }
-            
-            .mobile-menu-btn {
-                display: block;
-                position: relative;
-                z-index: 1001;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .section-title h2 {
-                font-size: 2rem;
-            }
-            
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            /* Overlay when menu is open */
-            .menu-overlay {
-                display: none;
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(0, 0, 0, 0.5);
-                z-index: 999;
-            }
-            
-            .menu-overlay.active {
-                display: block;
-            }
+        /* ---- FOOTER ---- */
+        .footer-link {
+            position: relative;
+            color: rgba(253, 251, 247, 0.6);
+            transition: color 0.3s ease;
         }
 
-        @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 1.8rem;
-            }
-            
-            .portfolio-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .filter-btn, .package-toggle-btn {
-                padding: 8px 16px;
-                font-size: 14px;
-            }
-            
-            .price {
-                font-size: 2.8rem;
-            }
+        .footer-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: #C4AA82;
+            transition: width 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: #FDFBF7;
+        }
+
+        .footer-link:hover::after {
+            width: 100%;
+        }
+
+        /* ---- HAMBURGER ---- */
+        .hamburger span {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: currentColor;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ---- SCROLL INDICATOR ---- */
+        .scroll-mouse {
+            width: 22px;
+            height: 36px;
+            border: 2px solid rgba(253, 251, 247, 0.5);
+            border-radius: 12px;
+            position: relative;
+        }
+
+        .scroll-mouse::after {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 8px;
+            background: rgba(253, 251, 247, 0.7);
+            border-radius: 2px;
+            animation: scrollDot 2s ease-in-out infinite;
+        }
+
+        @keyframes scrollDot {
+            0%, 100% { top: 6px; opacity: 1; }
+            50% { top: 16px; opacity: 0.3; }
+        }
+
+        /* ---- DOT PATTERN ---- */
+        .dot-pattern {
+            background-image: radial-gradient(circle, rgba(196, 170, 130, 0.15) 1px, transparent 1px);
+            background-size: 24px 24px;
         }
     </style>
 </head>
 <body>
-    <!-- Header & Navigation -->
-    <header>
-        <div class="container">
-            <nav>
-                <div class="logo">ARDDYS <span>PHOTOGRAPHY</span></div>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
-                    <i class="fas fa-bars"></i>
-                </button>
-                <ul class="nav-links" id="navLinks">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
-    
-    <!-- Menu overlay for mobile -->
-    <div class="menu-overlay" id="menuOverlay"></div>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="container">
-            <div class="hero-content">
-                <h1>Capturing Moments, Creating Stories</h1>
-                <p>Professional photography and videography services for weddings, events, portraits, and commercial projects. Let me help you tell your story through stunning visuals.</p>
-                <a href="#portfolio" class="btn">View My Work</a>
-                <a href="#pricing" class="btn" style="margin-left: 15px; background-color: transparent; border: 2px solid white;">View Packages</a>
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="nav-main fixed top-0 left-0 right-0 z-[100] py-5 px-6 lg:px-12" id="navbar">
+        <div class="max-w-[1400px] mx-auto flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-ocean-500 to-ocean-700 flex items-center justify-center">
+                    <i class="fa-solid fa-plane-departure text-white text-sm"></i>
+                </div>
+                <span class="nav-logo-text font-display text-lg lg:text-xl font-semibold text-white tracking-wide transition-colors duration-500">
+                    DOLLARMAN
+                </span>
+            </a>
+
+            <div class="hidden lg:flex items-center gap-10">
+                <a href="#about" class="nav-link text-white/90 text-sm font-medium tracking-wide hover:text-white">About</a>
+                <a href="#destinations" class="nav-link text-white/90 text-sm font-medium tracking-wide hover:text-white">Destinations</a>
+                <a href="#services" class="nav-link text-white/90 text-sm font-medium tracking-wide hover:text-white">Services</a>
+                <a href="#gallery" class="nav-link text-white/90 text-sm font-medium tracking-wide hover:text-white">Gallery</a>
+                <a href="#testimonials" class="nav-link text-white/90 text-sm font-medium tracking-wide hover:text-white">Stories</a>
+                <a href="#contact" class="nav-link text-white/90 text-sm font-medium tracking-wide hover:text-white">Contact</a>
+            </div>
+
+            <div class="hidden lg:flex items-center gap-4">
+                <a href="#contact" class="btn-primary text-sm py-3 px-7">
+                    <span>Plan Your Trip</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+
+            <button class="hamburger lg:hidden flex flex-col gap-[6px] text-white nav-logo-text transition-colors duration-500" id="hamburger" onclick="toggleMobileMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <button class="absolute top-6 right-6 text-ocean-800 text-2xl" onclick="toggleMobileMenu()">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <a href="#about" class="font-display text-3xl text-ocean-800 hover:text-ocean-600 transition-colors" onclick="toggleMobileMenu()">About</a>
+        <a href="#destinations" class="font-display text-3xl text-ocean-800 hover:text-ocean-600 transition-colors" onclick="toggleMobileMenu()">Destinations</a>
+        <a href="#services" class="font-display text-3xl text-ocean-800 hover:text-ocean-600 transition-colors" onclick="toggleMobileMenu()">Services</a>
+        <a href="#gallery" class="font-display text-3xl text-ocean-800 hover:text-ocean-600 transition-colors" onclick="toggleMobileMenu()">Gallery</a>
+        <a href="#testimonials" class="font-display text-3xl text-ocean-800 hover:text-ocean-600 transition-colors" onclick="toggleMobileMenu()">Stories</a>
+        <a href="#contact" class="font-display text-3xl text-ocean-800 hover:text-ocean-600 transition-colors" onclick="toggleMobileMenu()">Contact</a>
+        <a href="#contact" class="btn-primary mt-4" onclick="toggleMobileMenu()">
+            <span>Plan Your Trip</span>
+            <i class="fa-solid fa-arrow-right text-xs"></i>
+        </a>
+    </div>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero-section flex items-center">
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=1920&q=80" alt="Beautiful tropical beach">
+        </div>
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content w-full px-6 lg:px-12 pt-32 pb-20">
+            <div class="max-w-[1400px] mx-auto">
+                <div class="max-w-3xl">
+                    <div class="hero-subtitle flex items-center gap-4 mb-8">
+                        <div class="deco-line"></div>
+                        <span class="text-white/80 text-sm font-medium tracking-[4px] uppercase">Since 2010</span>
+                    </div>
+
+                    <h1 class="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-white font-medium leading-[1.05] mb-8">
+                        <div class="hero-title-line"><span style="animation-delay: 0.15s">Discover the</span></div>
+                        <div class="hero-title-line"><span style="animation-delay: 0.3s">World's Most</span></div>
+                        <div class="hero-title-line"><span style="animation-delay: 0.45s" class="italic font-light text-sand-300">Breathtaking</span></div>
+                        <div class="hero-title-line"><span style="animation-delay: 0.6s">Destinations</span></div>
+                    </h1>
+
+                    <p class="hero-subtitle text-white/70 text-base sm:text-lg leading-relaxed max-w-xl mb-10 font-light">
+                        We craft extraordinary travel experiences that go beyond the ordinary. From hidden gems to iconic landmarks, every journey is designed to inspire wonder and create memories that last a lifetime.
+                    </p>
+
+                    <div class="hero-cta flex flex-wrap items-center gap-4">
+                        <a href="#destinations" class="btn-primary">
+                            <span>Explore Destinations</span>
+                            <i class="fa-solid fa-compass text-xs"></i>
+                        </a>
+                        <a href="#contact" class="btn-outline">
+                            <span>Get in Touch</span>
+                            <i class="fa-solid fa-envelope text-xs"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio">
-        <div class="container">
-            <div class="section-title">
-                <h2>My Portfolio</h2>
-            </div>
-            <div class="portfolio-filter">
-                <button class="filter-btn active" data-filter="all">All Work</button>
-                <button class="filter-btn" data-filter="photography">Photography</button>
-                <button class="filter-btn" data-filter="videography">Videography</button>
-                <button class="filter-btn" data-filter="wedding">Wedding</button>
-                <button class="filter-btn" data-filter="commercial">Commercial</button>
-            </div>
-            <div class="portfolio-grid">
-                <!-- Photography items -->
-                <div class="portfolio-item" data-category="photography wedding">
-                    <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Wedding Photography">
-                    <div class="portfolio-overlay">
-                        <h3>Wedding Photography</h3>
-                        <p>Capturing love stories with emotion and elegance</p>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="photography commercial">
-                    <img src="https://images.unsplash.com/photo-1492684223066-dd23140edf6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Commercial Photography">
-                    <div class="portfolio-overlay">
-                        <h3>Product Photography</h3>
-                        <p>Showcasing products with style and precision</p>
-                    </div>
-                </div>
-                <!-- Videography items -->
-                <div class="portfolio-item" data-category="videography commercial">
-                    <video muted loop>
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-city-traffic-at-night-3457-large.mp4" type="video/mp4">
-                    </video>
-                    <div class="portfolio-overlay">
-                        <h3>Commercial Videography</h3>
-                        <p>Dynamic video content for brands and businesses</p>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="videography wedding">
-                    <video muted loop>
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-couple-hugging-on-a-beach-at-sunset-4006-large.mp4" type="video/mp4">
-                    </video>
-                    <div class="portfolio-overlay">
-                        <h3>Wedding Videography</h3>
-                        <p>Cinematic wedding films that tell your unique story</p>
-                    </div>
-                </div>
-                <!-- More items -->
-                <div class="portfolio-item" data-category="photography">
-                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Portrait Photography">
-                    <div class="portfolio-overlay">
-                        <h3>Portrait Photography</h3>
-                        <p>Expressive portraits that reveal personality</p>
-                    </div>
-                </div>
-                <div class="portfolio-item" data-category="videography">
-                    <video muted loop>
-                        <source src="https://assets.mixkit.co/videos/preview/mixkit-mother-with-her-little-daughter-eating-a-marshmallow-3975-large.mp4" type="video/mp4">
-                    </video>
-                    <div class="portfolio-overlay">
-                        <h3>Family Documentary</h3>
-                        <p>Authentic moments of family life captured on film</p>
-                    </div>
-                </div>
-            </div>
+        <div class="hero-scroll absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3">
+            <span class="text-white/50 text-xs tracking-[3px] uppercase font-medium">Scroll</span>
+            <div class="scroll-mouse"></div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <div class="section-title">
-                <h2>About Me</h2>
-            </div>
-            <div class="about-content">
-                <div class="about-img">
-                    <img src="https://i.imgur.com/SZxT338.jpeg" alt="Photographer">
+    <!-- ==================== STATS BAR ==================== -->
+    <section class="bg-ocean-900 py-10 px-6 lg:px-12">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4">
+                <div class="text-center lg:text-left lg:border-r lg:border-white/10 lg:pr-8 reveal">
+                    <div class="stat-number font-display text-4xl lg:text-5xl text-white font-medium mb-1" data-target="15000">0</div>
+                    <div class="text-white/50 text-sm tracking-wide">Happy Travelers</div>
                 </div>
-                <div class="about-text">
-                    <h3>Hi, I'm Enoch Arddy</h3>
-                    <p>I'm a professional photographer and videographer with over 10 years of experience capturing special moments and telling compelling visual stories.</p>
-                    <p>My journey began with a simple passion for capturing the world around me, which evolved into a career dedicated to creating meaningful visuals for clients across the globe. I believe that every moment has a story worth telling, and I strive to capture the essence of each subject through my lens.</p>
-                    <p>I specialize in wedding photography, commercial projects, and documentary-style videography. My approach combines technical expertise with artistic vision to deliver results that exceed expectations.</p>
-                    
-                    <div class="skills">
-                        <div class="skill-item">
-                            <div class="skill-name">
-                                <span>Photography</span>
-                                <span>95%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">
-                                <span>Videography</span>
-                                <span>90%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">
-                                <span>Photo Editing</span>
-                                <span>98%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="width: 98%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">
-                                <span>Video Editing</span>
-                                <span>92%</span>
-                            </div>
-                            <div class="skill-bar">
-                                <div class="skill-level" style="width: 92%"></div>
-                            </div>
-                        </div>
-                    </div>
+                <div class="text-center lg:text-left lg:border-r lg:border-white/10 lg:pr-8 reveal reveal-delay-1">
+                    <div class="stat-number font-display text-4xl lg:text-5xl text-white font-medium mb-1" data-target="85">0</div>
+                    <div class="text-white/50 text-sm tracking-wide">Destinations</div>
+                </div>
+                <div class="text-center lg:text-left lg:border-r lg:border-white/10 lg:pr-8 reveal reveal-delay-2">
+                    <div class="stat-number font-display text-4xl lg:text-5xl text-white font-medium mb-1" data-target="14">0</div>
+                    <div class="text-white/50 text-sm tracking-wide">Years Experience</div>
+                </div>
+                <div class="text-center lg:text-left reveal reveal-delay-3">
+                    <div class="stat-number font-display text-4xl lg:text-5xl text-white font-medium mb-1" data-target="98">0</div>
+                    <div class="text-white/50 text-sm tracking-wide">% Satisfaction</div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services">
-        <div class="container">
-            <div class="section-title">
-                <h2>My Services</h2>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-camera"></i>
+    <!-- ==================== ABOUT ==================== -->
+    <section id="about" class="py-24 lg:py-32 px-6 lg:px-12 bg-sand-50 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/3 h-full dot-pattern opacity-50"></div>
+        <div class="max-w-[1400px] mx-auto relative">
+            <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                <div class="relative reveal">
+                    <div class="relative z-10">
+                        <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=800&q=80" alt="Traveler exploring" class="w-full rounded-2xl shadow-2xl parallax-img" style="aspect-ratio: 4/5; object-fit: cover;">
                     </div>
-                    <h3>Photography</h3>
-                    <p>Professional photography for weddings, events, portraits, and commercial projects. High-quality images that tell your story.</p>
+                    <div class="absolute -bottom-8 -right-8 w-48 h-48 lg:w-64 lg:h-64 rounded-2xl overflow-hidden shadow-xl z-20 border-4 border-sand-50">
+                        <img src="https://images.unsplash.com/photo-1527631746610-bca00a040d60?w=400&q=80" alt="Adventure" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -top-6 -left-6 w-32 h-32 rounded-full bg-gradient-to-br from-ocean-200 to-ocean-300 opacity-40 z-0"></div>
                 </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-video"></i>
+
+                <div class="reveal reveal-delay-2">
+                    <div class="section-label mb-6">
+                        <div class="deco-line"></div>
+                        <span>About Us</span>
                     </div>
-                    <h3>Videography</h3>
-                    <p>Cinematic videography services for weddings, commercials, documentaries, and special events.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-film"></i>
+
+                    <h2 class="font-display text-4xl lg:text-5xl text-ocean-900 font-medium leading-tight mb-6">
+                        Crafting Journeys That<br>
+                        <span class="italic font-light text-ocean-600">Transform Lives</span>
+                    </h2>
+
+                    <p class="text-ocean-800/70 leading-relaxed mb-6 text-[0.95rem]">
+                        At <strong class="text-ocean-900">Dollarman Travel and Tour Consultancy</strong>, we believe that travel is the greatest teacher. Since 2010, we've been curating extraordinary journeys that connect travelers with the soul of each destination.
+                    </p>
+
+                    <p class="text-ocean-800/70 leading-relaxed mb-10 text-[0.95rem]">
+                        Our team of passionate travel consultants brings together decades of expertise, insider knowledge, and a genuine love for exploration. Whether you dream of wandering through ancient ruins, relaxing on pristine beaches, or embarking on thrilling adventures, we turn your travel dreams into meticulously planned realities.
+                    </p>
+
+                    <div class="grid grid-cols-2 gap-6 mb-10">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-ocean-50 flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-shield-halved text-ocean-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-display text-ocean-900 font-medium mb-1">Trusted Partner</h4>
+                                <p class="text-ocean-800/60 text-sm">Licensed & accredited</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-sand-100 flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-gem text-sand-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-display text-ocean-900 font-medium mb-1">Premium Quality</h4>
+                                <p class="text-ocean-800/60 text-sm">Handpicked experiences</p>
+                            </div>
+                        </div>
                     </div>
-                    <h3>Editing & Post-Production</h3>
-                    <p>Professional photo editing, color grading, and video post-production to bring your visuals to life.</p>
+
+                    <a href="#contact" class="btn-sand">
+                        <span>Start Your Journey</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- NEW: Pricing Section -->
-    <section id="pricing">
-        <div class="container">
-            <div class="section-title">
-                <h2>Packages & Pricing</h2>
-                <p style="max-width: 700px; margin: 20px auto 0; color: #666;">Choose the perfect package for your needs. All packages include professional editing and delivery.</p>
+    <!-- ==================== MARQUEE ==================== -->
+    <section class="py-6 bg-ocean-900 overflow-hidden">
+        <div class="marquee-track">
+            <div class="flex items-center gap-16 px-8">
+                <span class="text-white/20 text-sm tracking-[4px] uppercase font-medium whitespace-nowrap">Bali</span>
+                <span class="text-ocean-400 text-xs"><i class="fa-solid fa-star"></i></span>
+                <span class="text-white/20 text-sm tracking-[4px] uppercase font-medium whitespace-nowrap">Santorini</span>
+                <span class="text-ocean-400 text-xs"><i class="fa-solid fa-star"></i></span>
+                <span class="text-white/20 text-sm tracking-[4px] uppercase font-medium whitespace-nowrap">Maldives</span>
+                <span class="text-ocean-400 text-xs"><i class="fa-solid fa-star"></i></span>
+                <span class="text-white/20 text-sm tracking-[4px] uppercase font-medium whitespace-nowrap">Dubai</span>
+                <span class="text-ocean-400 text-xs"><i class="fa-solid fa-star"></i></span>
+                <span class="text-white/20 text-sm tracking-[4px] uppercase font-medium whitespace-nowrap">Paris</span>
+                <span class="text-ocean-400 text-xs"><i class="fa-solid fa-star"></i></span>
+                <span class="text-white/20 text-sm tracking-[4px] uppercase font-medium whitespace-nowrap">Tokyo</span>
+                <span class="text-ocean-400 text-xs"><i class="fa-solid fa-star"></i></span>
+                <span class="text-white/20 text-sm tracking-[4px] uppercase font-medium whitespace-nowrap">Cape Town</span>
+                <span class="text-ocean-400 text-xs"><i class="fa-solid fa-star"></i></span>
+                <span class="text-white/20 text-sm tracking-[4px] uppercase font-medium whitespace-nowrap">Machu Picchu</span>
+                <span class="text-ocean-400 text-xs"><i class="fa-solid fa-star"></i></span>
+                <span class="text-white/20 text-sm tracking-[4px] uppercase font-medium whitespace-nowrap">Iceland</span>
+                <span class="text-ocean-400 text-xs"><i class="fa-solid fa-star"></i></span>
             </div>
-            
-            <div class="package-toggle">
-                <button class="package-toggle-btn active" data-type="photography">Photoshoot</button>
-                <button class="package-toggle-btn" data-type="videography">Weddings</button>
-                <button class="package-toggle-btn" data-type="combo">Other Events</button>
-            </div>
-            
-            <div class="pricing-grid">
-                <!-- Photography Package 1 -->
-                <div class="pricing-card" data-type="photography">
-                    <div class="pricing-header">
-                        <h3>PARIS</h3>
-                        <div class="price">₵450<span>/event</span></div>
-                        <p class="price-description">Your next step could be the start of something amazing.</p>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li><i class="fas fa-check"></i> 1 Outfit</li>
-                            <li><i class="fas fa-check"></i> 30min section</li>
-                            <li><i class="fas fa-check"></i> 5 retouched</li>
-                            <li><i class="fas fa-check"></i> Extra retouch: GH₵100 each</li>
-                            <li><i class="fas fa-check"></i> 3 working days delivery</li>
-                            <!-- <li><i class="fas fa-times"></i> Same-day preview</li> -->
-                        </ul>
-                    </div>
-                    <div class="pricing-footer">
-                        <a href="#contact" class="btn" onclick="selectPackage('Basic Photography - ₵800')">Book This Package</a>
-                    </div>
-                </div>
-                
-                <!-- Photography Package 2 (Featured) -->
-                <div class="pricing-card featured" data-type="photography">
-                    <div class="featured-badge">MOST POPULAR</div>
-                    <div class="pricing-header">
-                        <h3>SANTORINI</h3>
-                        <div class="price">₵600<span>/event</span></div>
-                        <p class="price-description">Great for birthdays and other special days</p>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li><i class="fas fa-check"></i> 1 or 2 Outfit(s)</li>
-                            <li><i class="fas fa-check"></i> 30min section (extra 30mins cost 150gh₵)</li>
-                            <li><i class="fas fa-check"></i> 7 retouched images</li>
-                            <li><i class="fas fa-check"></i> Extra retouch cost 100gh₵</li>
-                            <li><i class="fas fa-check"></i> 3-5 working days to deliver images</li>
-                            <li><i class="fas fa-check"></i> Same-day preview</li>
-                        </ul>
-                    </div>
-                    <div class="pricing-footer">
-                        <a href="#contact" class="btn" onclick="selectPackage('Standard Photography - ₵1,500')">Book This Package</a>
-                    </div>
-                </div>
-                
-                <!-- Photography Package 3 -->
-                <div class="pricing-card" data-type="photography">
-                    <div class="pricing-header">
-                        <h3>MALDIVES</h3>
-                        <div class="price">₵850<span>/event</span></div>
-                        <p class="price-description">premium events</p>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li><i class="fas fa-check"></i> 1 hour section(extra 30min cost 150gh₵)</li>
-                            <li><i class="fas fa-check"></i> 10 retouched images</li>
-                            <li><i class="fas fa-check"></i> Extra retouch cost 100gh₵</li>
-                            <li><i class="fas fa-check"></i> 3 working days to deliver retouch images</li>
-                            <li><i class="fas fa-check"></i> All images sent to client to select from if insisted on</li>
-                            <!-- <li><i class="fas fa-check"></i> Terms and conditions apply</li> -->
-                        </ul>
-                    </div>
-                    <div class="pricing-footer">
-                        <a href="#contact" class="btn" onclick="selectPackage('Premium Photography - ₵2,500')">Book This Package</a>
-                    </div>
-                </div>
-                
-                <!-- Weddings Package 1 -->
-                <div class="pricing-card" data-type="videography" style="display: none;">
-                    <div class="pricing-header">
-                        <h3>Basic Video</h3>
-                        <div class="price">₵1,200<span>/event</span></div>
-                        <p class="price-description">Short event coverage</p>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li><i class="fas fa-check"></i> 2-3 hours coverage</li>
-                            <li><i class="fas fa-check"></i> 3-5 minute highlight video</li>
-                            <li><i class="fas fa-check"></i> Basic color grading</li>
-                            <li><i class="fas fa-check"></i> Online delivery</li>
-                            <li><i class="fas fa-times"></i> Full ceremony/edit</li>
-                            <li><i class="fas fa-times"></i> Drone footage</li>
-                        </ul>
-                    </div>
-                    <div class="pricing-footer">
-                        <a href="#contact" class="btn" onclick="selectPackage('Basic Videography - ₵1,200')">Book This Package</a>
-                    </div>
-                </div>
-                
-                <!-- Videography Package 2 -->
-                <div class="pricing-card featured" data-type="videography" style="display: none;">
-                    <div class="featured-badge">BEST VALUE</div>
-                    <div class="pricing-header">
-                        <h3>Standard Video</h3>
-                        <div class="price">₵2,000<span>/event</span></div>
-                        <p class="price-description">Complete wedding coverage</p>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li><i class="fas fa-check"></i> 6-8 hours coverage</li>
-                            <li><i class="fas fa-check"></i> 5-8 minute highlight video</li>
-                            <li><i class="fas fa-check"></i> Full ceremony & speeches</li>
-                            <li><i class="fas fa-check"></i> Professional color grading</li>
-                            <li><i class="fas fa-check"></i> Drone footage included</li>
-                            <li><i class="fas fa-check"></i> Blu-ray/USB delivery</li>
-                        </ul>
-                    </div>
-                    <div class="pricing-footer">
-                        <a href="#contact" class="btn" onclick="selectPackage('Standard Videography - ₵2,000')">Book This Package</a>
-                    </div>
-                </div>
-                
-                <!-- Videography Package 3 -->
-                <div class="pricing-card" data-type="videography" style="display: none;">
-                    <div class="pricing-header">
-                        <h3>Premium Video</h3>
-                        <div class="price">₵3,500<span>/event</span></div>
-                        <p class="price-description">Cinematic storytelling</p>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li><i class="fas fa-check"></i> Full day coverage</li>
-                            <li><i class="fas fa-check"></i> 10-15 minute cinematic film</li>
-                            <li><i class="fas fa-check"></i> Multiple camera angles</li>
-                            <li><i class="fas fa-check"></i> Advanced color grading</li>
-                            <li><i class="fas fa-check"></i> Documentary style editing</li>
-                            <li><i class="fas fa-check"></i> Engagement film included</li>
-                        </ul>
-                    </div>
-                    <div class="pricing-footer">
-                        <a href="#contact" class="btn" onclick="selectPackage('Premium Videography - ₵3,500')">Book This Package</a>
-                    </div>
-                </div>
-                
-                <!-- Combo Package -->
-                <div class="pricing-card featured" data-type="combo" style="display: none;">
-                    <div class="featured-badge">SAVE 20%</div>
-                    <div class="pricing-header">
-                        <h3>Complete Package</h3>
-                        <div class="price">₵3,200<span>/event</span></div>
-                        <p class="price-description">Photo + Video combo (save ₵800)</p>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li><i class="fas fa-check"></i> 6-8 hours photo coverage</li>
-                            <li><i class="fas fa-check"></i> 6-8 hours video coverage</li>
-                            <li><i class="fas fa-check"></i> 250+ edited photos</li>
-                            <li><i class="fas fa-check"></i> 5-8 minute highlight video</li>
-                            <li><i class="fas fa-check"></i> Photo album + video Blu-ray</li>
-                            <li><i class="fas fa-check"></i> Engagement session included</li>
-                        </ul>
-                    </div>
-                    <div class="pricing-footer">
-                        <a href="#contact" class="btn" onclick="selectPackage('Complete Photo+Video Package - ₵3,200')">Book This Package</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 40px;">
-                <p style="color: #666; font-size: 1.1rem;">Need a custom package? <a href="#contact" style="color: var(--secondary-color); font-weight: 600;">Contact me for a personalized quote</a></p>
+            <div class="flex items-center gap-16 px-8">
+                <span class="text-white/20 text-sm tracking-[4px] uppercase font-medium whitespace-nowrap">Bali</span>
+                <span class="text-ocean-400 text-xs"><i class="fa-solid fa-star"></i></span>
+                <span class="text-white/20 text-sm tracking-[4px] uppercase font-medium whitespace-nowrap">Santorini</span>
+                <span class="text-ocean-400 text-xs"><i class="fa-solid fa-star"></i></span>
+                <span class="text-white/20 text-sm tracking-[4px] uppercase font-medium whitespace-nowrap">Maldives</span>
+                <span class="text-ocean-400 text-xs"><i class="fa-solid fa-star"></i></span>
+                <span class="text-white/20 text-sm tracking-[4px] uppercase font-medium whitespace-nowrap">Dubai</span>
+                <span class="text-ocean-400 text-xs"><i class="fa-solid fa-star"></i></span>
+                <span class="text-white/20 text-sm tracking-[4px] uppercase font-medium whitespace-nowrap">Paris</span>
+                <span class="text-ocean-400 text-xs"><i class="fa-solid fa-star"></i></span>
+                <span class="text-white/20 text-sm tracking-[4px] uppercase font-medium whitespace-nowrap">Tokyo</span>
+                <span class="text-ocean-400 text-xs"><i class="fa-solid fa-star"></i></span>
+                <span class="text-white/20 text-sm tracking-[4px] uppercase font-medium whitespace-nowrap">Cape Town</span>
+                <span class="text-ocean-400 text-xs"><i class="fa-solid fa-star"></i></span>
+                <span class="text-white/20 text-sm tracking-[4px] uppercase font-medium whitespace-nowrap">Machu Picchu</span>
+                <span class="text-ocean-400 text-xs"><i class="fa-solid fa-star"></i></span>
+                <span class="text-white/20 text-sm tracking-[4px] uppercase font-medium whitespace-nowrap">Iceland</span>
+                <span class="text-ocean-400 text-xs"><i class="fa-solid fa-star"></i></span>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section - FORMSPREE INTEGRATED -->
-    <section id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Get In Touch</h2>
+    <!-- ==================== DESTINATIONS ==================== -->
+    <section id="destinations" class="py-24 lg:py-32 px-6 lg:px-12 bg-white">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <div class="section-label justify-center mb-6">
+                    <div class="deco-line"></div>
+                    <span>Destinations</span>
+                    <div class="deco-line"></div>
+                </div>
+                <h2 class="font-display text-4xl lg:text-5xl text-ocean-900 font-medium leading-tight mb-5">
+                    Where Will Your<br><span class="italic font-light text-ocean-600">Next Adventure</span> Take You?
+                </h2>
+                <p class="text-ocean-800/60 leading-relaxed">
+                    From sun-kissed beaches to snow-capped mountains, we offer curated experiences across the world's most captivating destinations.
+                </p>
             </div>
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h3>Let's Create Something Amazing Together</h3>
-                    <p>I'm currently available for photography and videography projects. Feel free to reach out to discuss your vision.</p>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-map-marker-alt"></i>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="dest-card aspect-[4/5] reveal">
+                    <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?w=600&q=80" alt="Bali" class="w-full h-full object-cover">
+                    <div class="dest-card-overlay"></div>
+                    <div class="dest-card-content">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fa-solid fa-location-dot text-sand-400 text-xs"></i>
+                            <span class="text-white/70 text-xs tracking-wider uppercase">Indonesia</span>
                         </div>
-                        <div>
-                            <h4>Location</h4>
-                            <p>Tanoso-Kumasi, Apatrapa Junction</p>
-                            <p>Tanoso-Kumasi, AAMUSTED Campus Inside Franky Jay mall</p>
+                        <h3 class="font-display text-2xl text-white font-medium">Bali</h3>
+                        <div class="dest-desc">
+                            <p class="text-white/70 text-sm leading-relaxed">Ancient temples, lush rice terraces, and pristine beaches await in this tropical paradise.</p>
                         </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div>
-                            <h4>Phone</h4>
-                            <p>+233 55 715 0918</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div>
-                            <h4>Email</h4>
-                            <p>hello@lensandframe.com</p>
+                        <div class="flex items-center justify-between mt-4 pt-4 border-t border-white/10">
+                            <span class="text-white/60 text-sm">From <span class="text-white font-medium">$1,299</span></span>
+                            <span class="text-sand-300 text-sm font-medium flex items-center gap-2 group">
+                                Explore <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+                            </span>
                         </div>
                     </div>
                 </div>
-                
-                <div class="contact-form">
-                    <!-- Formspree Form - ACTUALLY WORKS! -->
-                    <form id="contactForm" action="https://formspree.io/f/movgyljz" method="POST">
-                        <!-- Success/Error Messages -->
-                        <div id="formMessage" class="form-message"></div>
-                        
-                        <input type="text" name="name" placeholder="Your Name" required>
-                        <input type="email" name="email" placeholder="Your Email" required>
-                        <input type="text" name="phone" placeholder="Your Phone Number" required>
-                        <select name="package" id="packageSelect" required>
-                            <option value="" disabled selected>Select a Package</option>
-                            <option value="Basic Photography - ₵800">Basic Photography - ₵450</option>
-                            <option value="Standard Photography - ₵1,500">Standard Photography - ₵600</option>
-                            <option value="Premium Photography - ₵2,500">Premium Photography - ₵850</option>
-                            <option value="Basic Videography - ₵1,200">Basic Videography - ₵1,200</option>
-                            <option value="Standard Videography - ₵2,000">Standard Videography - ₵2,000</option>
-                            <option value="Premium Videography - ₵3,500">Premium Videography - ₵3,500</option>
-                            <option value="Complete Photo+Video Package - ₵3,200">Complete Photo+Video Package - ₵3,200</option>
-                            <option value="Custom Package">Custom Package (Please specify in message)</option>
-                        </select>
-                        <input type="text" name="event_date" placeholder="Event Date (Optional)">
-                        <textarea name="message" placeholder="Tell me about your project..." required></textarea>
-                        <button type="submit" class="btn">Send Message</button>
+
+                <!-- Card 2 -->
+                <div class="dest-card aspect-[4/5] reveal reveal-delay-1">
+                    <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=600&q=80" alt="Santorini" class="w-full h-full object-cover">
+                    <div class="dest-card-overlay"></div>
+                    <div class="dest-card-content">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fa-solid fa-location-dot text-sand-400 text-xs"></i>
+                            <span class="text-white/70 text-xs tracking-wider uppercase">Greece</span>
+                        </div>
+                        <h3 class="font-display text-2xl text-white font-medium">Santorini</h3>
+                        <div class="dest-desc">
+                            <p class="text-white/70 text-sm leading-relaxed">Iconic white-washed buildings, stunning sunsets, and crystal-clear Aegean waters.</p>
+                        </div>
+                        <div class="flex items-center justify-between mt-4 pt-4 border-t border-white/10">
+                            <span class="text-white/60 text-sm">From <span class="text-white font-medium">$1,899</span></span>
+                            <span class="text-sand-300 text-sm font-medium flex items-center gap-2 group">
+                                Explore <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="dest-card aspect-[4/5] reveal reveal-delay-2">
+                    <img src="https://images.unsplash.com/photo-1514282401047-d79a71a590e8?w=600&q=80" alt="Maldives" class="w-full h-full object-cover">
+                    <div class="dest-card-overlay"></div>
+                    <div class="dest-card-content">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fa-solid fa-location-dot text-sand-400 text-xs"></i>
+                            <span class="text-white/70 text-xs tracking-wider uppercase">Maldives</span>
+                        </div>
+                        <h3 class="font-display text-2xl text-white font-medium">Maldives</h3>
+                        <div class="dest-desc">
+                            <p class="text-white/70 text-sm leading-relaxed">Overwater villas, vibrant coral reefs, and unparalleled luxury in the Indian Ocean.</p>
+                        </div>
+                        <div class="flex items-center justify-between mt-4 pt-4 border-t border-white/10">
+                            <span class="text-white/60 text-sm">From <span class="text-white font-medium">$2,499</span></span>
+                            <span class="text-sand-300 text-sm font-medium flex items-center gap-2 group">
+                                Explore <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="dest-card aspect-[4/5] reveal">
+                    <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600&q=80" alt="Dubai" class="w-full h-full object-cover">
+                    <div class="dest-card-overlay"></div>
+                    <div class="dest-card-content">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fa-solid fa-location-dot text-sand-400 text-xs"></i>
+                            <span class="text-white/70 text-xs tracking-wider uppercase">UAE</span>
+                        </div>
+                        <h3 class="font-display text-2xl text-white font-medium">Dubai</h3>
+                        <div class="dest-desc">
+                            <p class="text-white/70 text-sm leading-relaxed">Futuristic skyline, world-class shopping, and desert adventures in the city of gold.</p>
+                        </div>
+                        <div class="flex items-center justify-between mt-4 pt-4 border-t border-white/10">
+                            <span class="text-white/60 text-sm">From <span class="text-white font-medium">$1,599</span></span>
+                            <span class="text-sand-300 text-sm font-medium flex items-center gap-2 group">
+                                Explore <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="dest-card aspect-[4/5] reveal reveal-delay-1">
+                    <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?w=600&q=80" alt="Kyoto" class="w-full h-full object-cover">
+                    <div class="dest-card-overlay"></div>
+                    <div class="dest-card-content">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fa-solid fa-location-dot text-sand-400 text-xs"></i>
+                            <span class="text-white/70 text-xs tracking-wider uppercase">Japan</span>
+                        </div>
+                        <h3 class="font-display text-2xl text-white font-medium">Kyoto</h3>
+                        <div class="dest-desc">
+                            <p class="text-white/70 text-sm leading-relaxed">Ancient temples, serene bamboo groves, and the timeless beauty of traditional Japan.</p>
+                        </div>
+                        <div class="flex items-center justify-between mt-4 pt-4 border-t border-white/10">
+                            <span class="text-white/60 text-sm">From <span class="text-white font-medium">$2,199</span></span>
+                            <span class="text-sand-300 text-sm font-medium flex items-center gap-2 group">
+                                Explore <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="dest-card aspect-[4/5] reveal reveal-delay-2">
+                    <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?w=600&q=80" alt="Santorini" class="w-full h-full object-cover">
+                    <div class="dest-card-overlay"></div>
+                    <div class="dest-card-content">
+                        <div class="flex items-center gap-2 mb-2">
+                            <i class="fa-solid fa-location-dot text-sand-400 text-xs"></i>
+                            <span class="text-white/70 text-xs tracking-wider uppercase">Greece</span>
+                        </div>
+                        <h3 class="font-display text-2xl text-white font-medium">Santorini</h3>
+                        <div class="dest-desc">
+                            <p class="text-white/70 text-sm leading-relaxed">Iconic white-washed buildings, stunning sunsets, and crystal-clear Aegean waters.</p>
+                        </div>
+                        <div class="flex items-center justify-between mt-4 pt-4 border-t border-white/10">
+                            <span class="text-white/60 text-sm">From <span class="text-white font-medium">$1,899</span></span>
+                            <span class="text-sand-300 text-sm font-medium flex items-center gap-2 group">
+                                Explore <i class="fa-solid fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-14 reveal">
+                <a href="#contact" class="btn-sand">
+                    <span>View All Destinations</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SERVICES ==================== -->
+    <section id="services" class="py-24 lg:py-32 px-6 lg:px-12 bg-sand-50 relative overflow-hidden">
+        <div class="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-ocean-100/50 -translate-x-1/2 translate-y-1/2"></div>
+        <div class="max-w-[1400px] mx-auto relative">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <div class="section-label justify-center mb-6">
+                    <div class="deco-line"></div>
+                    <span>Our Services</span>
+                    <div class="deco-line"></div>
+                </div>
+                <h2 class="font-display text-4xl lg:text-5xl text-ocean-900 font-medium leading-tight mb-5">
+                    Everything You Need<br>for the <span class="italic font-light text-ocean-600">Perfect Trip</span>
+                </h2>
+                <p class="text-ocean-800/60 leading-relaxed">
+                    Comprehensive travel solutions designed to make your journey seamless, safe, and unforgettable from start to finish.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="service-card reveal">
+                    <div class="service-icon-wrap mb-6">
+                        <i class="fa-solid fa-plane text-ocean-600 text-xl transition-colors duration-500"></i>
+                    </div>
+                    <h3 class="font-display text-xl text-ocean-900 font-medium mb-3">Flight Booking</h3>
+                    <p class="text-ocean-800/60 leading-relaxed text-[0.9rem]">Access to competitive airfares across all major airlines with flexible booking options and 24/7 support.</p>
+                </div>
+
+                <div class="service-card reveal reveal-delay-1">
+                    <div class="service-icon-wrap mb-6">
+                        <i class="fa-solid fa-hotel text-ocean-600 text-xl transition-colors duration-500"></i>
+                    </div>
+                    <h3 class="font-display text-xl text-ocean-900 font-medium mb-3">Hotel Reservations</h3>
+                    <p class="text-ocean-800/60 leading-relaxed text-[0.9rem]">Handpicked accommodations from luxury resorts to boutique hotels, all vetted for quality and comfort.</p>
+                </div>
+
+                <div class="service-card reveal reveal-delay-2">
+                    <div class="service-icon-wrap mb-6">
+                        <i class="fa-solid fa-passport text-ocean-600 text-xl transition-colors duration-500"></i>
+                    </div>
+                    <h3 class="font-display text-xl text-ocean-900 font-medium mb-3">Visa Assistance</h3>
+                    <p class="text-ocean-800/60 leading-relaxed text-[0.9rem]">Expert guidance through visa applications with document preparation and submission support.</p>
+                </div>
+
+                <div class="service-card reveal">
+                    <div class="service-icon-wrap mb-6">
+                        <i class="fa-solid fa-route text-ocean-600 text-xl transition-colors duration-500"></i>
+                    </div>
+                    <h3 class="font-display text-xl text-ocean-900 font-medium mb-3">Custom Itineraries</h3>
+                    <p class="text-ocean-800/60 leading-relaxed text-[0.9rem]">Bespoke travel plans tailored to your interests, budget, and travel style for a truly personal experience.</p>
+                </div>
+
+                <div class="service-card reveal reveal-delay-1">
+                    <div class="service-icon-wrap mb-6">
+                        <i class="fa-solid fa-users text-ocean-600 text-xl transition-colors duration-500"></i>
+                    </div>
+                    <h3 class="font-display text-xl text-ocean-900 font-medium mb-3">Group Tours</h3>
+                    <p class="text-ocean-800/60 leading-relaxed text-[0.9rem]">Curated group experiences with expert guides, perfect for families, friends, and corporate retreats.</p>
+                </div>
+
+                <div class="service-card reveal reveal-delay-2">
+                    <div class="service-icon-wrap mb-6">
+                        <i class="fa-solid fa-shield-heart text-ocean-600 text-xl transition-colors duration-500"></i>
+                    </div>
+                    <h3 class="font-display text-xl text-ocean-900 font-medium mb-3">Travel Insurance</h3>
+                    <p class="text-ocean-800/60 leading-relaxed text-[0.9rem]">Comprehensive coverage options to protect you and your loved ones throughout your journey.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TESTIMONIALS ==================== -->
+    <section id="testimonials" class="py-24 lg:py-32 px-6 lg:px-12 bg-white">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="text-center max-w-2xl mx-auto mb-16 reveal">
+                <div class="section-label justify-center mb-6">
+                    <div class="deco-line"></div>
+                    <span>Testimonials</span>
+                    <div class="deco-line"></div>
+                </div>
+                <h2 class="font-display text-4xl lg:text-5xl text-ocean-900 font-medium leading-tight mb-5">
+                    Stories From Our<br><span class="italic font-light text-ocean-600">Travelers</span>
+                </h2>
+            </div>
+
+            <div class="relative reveal">
+                <div class="overflow-hidden" id="testimonialSlider">
+                    <div class="flex transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)]" id="testimonialTrack">
+                        <!-- Slide 1 -->
+                        <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-3">
+                            <div class="testimonial-card h-full">
+                                <div class="flex items-center gap-1 mb-5">
+                                    <i class="fa-solid fa-star text-sand-400 text-sm"></i>
+                                    <i class="fa-solid fa-star text-sand-400 text-sm"></i>
+                                    <i class="fa-solid fa-star text-sand-400 text-sm"></i>
+                                    <i class="fa-solid fa-star text-sand-400 text-sm"></i>
+                                    <i class="fa-solid fa-star text-sand-400 text-sm"></i>
+                                </div>
+                                <p class="text-ocean-800/70 leading-relaxed mb-8 text-[0.95rem] italic font-accent text-lg">
+                                    "Dollarman made our honeymoon absolutely magical. Every detail was perfectly arranged, from the private villa in Bali to the surprise sunset dinner. We couldn't have asked for a better experience."
+                                </p>
+                                <div class="flex items-center gap-4">
+                                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Sarah M." class="w-12 h-12 rounded-full object-cover">
+                                    <div>
+                                        <h4 class="font-display text-ocean-900 font-medium text-sm">Sarah Mitchell</h4>
+                                        <p class="text-ocean-800/50 text-xs">Honeymoon in Bali</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-3">
+                            <div class="testimonial-card h-full">
+                                <div class="flex items-center gap-1 mb-5">
+                                    <i class="fa-solid fa-star text-sand-400 text-sm"></i>
+                                    <i class="fa-solid fa-star text-sand-400 text-sm"></i>
+                                    <i class="fa-solid fa-star text-sand-400 text-sm"></i>
+                                    <i class="fa-solid fa-star text-sand-400 text-sm"></i>
+                                    <i class="fa-solid fa-star text-sand-400 text-sm"></i>
+                                </div>
+                                <p class="text-ocean-800/70 leading-relaxed mb-8 text-[0.95rem] italic font-accent text-lg">
+                                    "The team went above and beyond for our family trip to Japan. The cultural experiences they arranged were authentic and meaningful. Our kids are still talking about it months later!"
+                                </p>
+                                <div class="flex items-center gap-4">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="James K." class="w-12 h-12 rounded-full object-cover">
+                                    <div>
+                                        <h4 class="font-display text-ocean-900 font-medium text-sm">James Kowalski</h4>
+                                        <p class="text-ocean-800/50 text-xs">Family Trip to Japan</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-3">
+                            <div class="testimonial-card h-full">
+                                <div class="flex items-center gap-1 mb-5">
+                                    <i class="fa-solid fa-star text-sand-400 text-sm"></i>
+                                    <i class="fa-solid fa-star text-sand-400 text-sm"></i>
+                                    <i class="fa-solid fa-star text-sand-400 text-sm"></i>
+                                    <i class="fa-solid fa-star text-sand-400 text-sm"></i>
+                                    <i class="fa-solid fa-star text-sand-400 text-sm"></i>
+                                </div>
+                                <p class="text-ocean-800/70 leading-relaxed mb-8 text-[0.95rem] italic font-accent text-lg">
+                                    "As a solo traveler, I was nervous about my African safari. Dollarman's team ensured I felt safe and connected throughout. The guides were incredible and the wildlife encounters were life-changing."
+                                </p>
+                                <div class="flex items-center gap-4">
+                                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80" alt="Emma L." class="w-12 h-12 rounded-full object-cover">
+                                    <div>
+                                        <h4 class="font-display text-ocean-900 font-medium text-sm">Emma Laurent</h4>
+                                        <p class="text-ocean-800/50 text-xs">Safari in Kenya</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 4 -->
+                        <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-3">
+                            <div class="testimonial-card h-full">
+                                <div class="flex items-center gap-1 mb-5">
+                                    <i class="fa-solid fa-star text-sand-400 text-sm"></i>
+                                    <i class="fa-solid fa-star text-sand-400 text-sm"></i>
+                                    <i class="fa-solid fa-star text-sand-400 text-sm"></i>
+                                    <i class="fa-solid fa-star text-sand-400 text-sm"></i>
+                                    <i class="fa-solid fa-star-half-stroke text-sand-400 text-sm"></i>
+                                </div>
+                                <p class="text-ocean-800/70 leading-relaxed mb-8 text-[0.95rem] italic font-accent text-lg">
+                                    "We've used Dollarman for three corporate retreats now, and they consistently deliver exceptional experiences. Their attention to detail and professionalism is unmatched in the industry."
+                                </p>
+                                <div class="flex items-center gap-4">
+                                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&q=80" alt="Michael R." class="w-12 h-12 rounded-full object-cover">
+                                    <div>
+                                        <h4 class="font-display text-ocean-900 font-medium text-sm">Michael Rodriguez</h4>
+                                        <p class="text-ocean-800/50 text-xs">Corporate Retreat, Dubai</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex items-center justify-center gap-4 mt-10">
+                    <button class="test-arrow" onclick="prevTestimonial()">
+                        <i class="fa-solid fa-arrow-left text-sm"></i>
+                    </button>
+                    <div class="flex items-center gap-2" id="testimonialDots">
+                        <button class="w-2.5 h-2.5 rounded-full bg-ocean-600 transition-all duration-300" data-index="0"></button>
+                        <button class="w-2.5 h-2.5 rounded-full bg-ocean-200 transition-all duration-300" data-index="1"></button>
+                        <button class="w-2.5 h-2.5 rounded-full bg-ocean-200 transition-all duration-300" data-index="2"></button>
+                    </div>
+                    <button class="test-arrow" onclick="nextTestimonial()">
+                        <i class="fa-solid fa-arrow-right text-sm"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== GALLERY ==================== -->
+    <section id="gallery" class="py-24 lg:py-32 px-6 lg:px-12 bg-ocean-900">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-14 reveal">
+                <div>
+                    <div class="section-label mb-6">
+                        <div class="deco-line"></div>
+                        <span class="text-ocean-300">Gallery</span>
+                    </div>
+                    <h2 class="font-display text-4xl lg:text-5xl text-white font-medium leading-tight">
+                        Moments That<br><span class="italic font-light text-ocean-300">Inspire Wanderlust</span>
+                    </h2>
+                </div>
+                <p class="text-white/50 max-w-md mt-4 lg:mt-0 text-sm leading-relaxed">
+                    A glimpse into the unforgettable experiences we've crafted for travelers around the world.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3 lg:gap-4">
+                <div class="gallery-item aspect-square reveal" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=500&q=80" alt="Beach" class="w-full h-full object-cover">
+                    <div class="gallery-zoom"><i class="fa-solid fa-expand text-ocean-700 text-sm"></i></div>
+                </div>
+                <div class="gallery-item aspect-square reveal reveal-delay-1" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=500&q=80" alt="Mountains" class="w-full h-full object-cover">
+                    <div class="gallery-zoom"><i class="fa-solid fa-expand text-ocean-700 text-sm"></i></div>
+                </div>
+                <div class="gallery-item aspect-square reveal reveal-delay-2" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=500&q=80" alt="Lake" class="w-full h-full object-cover">
+                    <div class="gallery-zoom"><i class="fa-solid fa-expand text-ocean-700 text-sm"></i></div>
+                </div>
+                <div class="gallery-item aspect-square reveal" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1499678329028-101435549a4e?w=500&q=80" alt="Tuscany" class="w-full h-full object-cover">
+                    <div class="gallery-zoom"><i class="fa-solid fa-expand text-ocean-700 text-sm"></i></div>
+                </div>
+                <div class="gallery-item aspect-square reveal reveal-delay-1" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=500&q=80" alt="Bali" class="w-full h-full object-cover">
+                    <div class="gallery-zoom"><i class="fa-solid fa-expand text-ocean-700 text-sm"></i></div>
+                </div>
+                <div class="gallery-item aspect-square reveal reveal-delay-2" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?w=500&q=80" alt="Venice" class="w-full h-full object-cover">
+                    <div class="gallery-zoom"><i class="fa-solid fa-expand text-ocean-700 text-sm"></i></div>
+                </div>
+                <div class="gallery-item aspect-square reveal" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?w=500&q=80" alt="Tropical" class="w-full h-full object-cover">
+                    <div class="gallery-zoom"><i class="fa-solid fa-expand text-ocean-700 text-sm"></i></div>
+                </div>
+                <div class="gallery-item aspect-square reveal reveal-delay-1" onclick="openLightbox(this)">
+                    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=500&q=80" alt="Nature" class="w-full h-full object-cover">
+                    <div class="gallery-zoom"><i class="fa-solid fa-expand text-ocean-700 text-sm"></i></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT ==================== -->
+    <section id="contact" class="py-24 lg:py-32 px-6 lg:px-12 bg-sand-50 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-96 h-96 rounded-full bg-ocean-50 -translate-y-1/2 translate-x-1/2"></div>
+        <div class="max-w-[1400px] mx-auto relative">
+            <div class="grid lg:grid-cols-5 gap-16">
+                <div class="lg:col-span-2 reveal">
+                    <div class="section-label mb-6">
+                        <div class="deco-line"></div>
+                        <span>Contact Us</span>
+                    </div>
+                    <h2 class="font-display text-4xl lg:text-5xl text-ocean-900 font-medium leading-tight mb-6">
+                        Let's Plan Your<br><span class="italic font-light text-ocean-600">Next Adventure</span>
+                    </h2>
+                    <p class="text-ocean-800/60 leading-relaxed mb-10 text-[0.95rem]">
+                        Ready to explore the world? Reach out to our team and we'll craft a personalized travel experience just for you.
+                    </p>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-5">
+                            <div class="w-12 h-12 rounded-xl bg-white border border-sand-200 flex items-center justify-center flex-shrink-0 shadow-sm">
+                                <i class="fa-solid fa-location-dot text-ocean-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-display text-ocean-900 font-medium text-sm mb-1">Visit Us</h4>
+                                <p class="text-ocean-800/60 text-sm leading-relaxed">123 Travel Avenue, Suite 400<br>Accra, Ghana</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-5">
+                            <div class="w-12 h-12 rounded-xl bg-white border border-sand-200 flex items-center justify-center flex-shrink-0 shadow-sm">
+                                <i class="fa-solid fa-phone text-ocean-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-display text-ocean-900 font-medium text-sm mb-1">Call Us</h4>
+                                <p class="text-ocean-800/60 text-sm">+233 24 123 4567</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-5">
+                            <div class="w-12 h-12 rounded-xl bg-white border border-sand-200 flex items-center justify-center flex-shrink-0 shadow-sm">
+                                <i class="fa-solid fa-envelope text-ocean-600"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-display text-ocean-900 font-medium text-sm mb-1">Email Us</h4>
+                                <p class="text-ocean-800/60 text-sm">hello@dollarmantravel.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-10">
+                        <h4 class="font-display text-ocean-900 font-medium text-sm mb-4">Follow Our Journey</h4>
+                        <div class="flex items-center gap-3">
+                            <a href="#" class="w-11 h-11 rounded-xl bg-white border border-sand-200 flex items-center justify-center text-ocean-600 hover:bg-ocean-600 hover:text-white hover:border-ocean-600 transition-all duration-300 shadow-sm">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            <a href="#" class="w-11 h-11 rounded-xl bg-white border border-sand-200 flex items-center justify-center text-ocean-600 hover:bg-ocean-600 hover:text-white hover:border-ocean-600 transition-all duration-300 shadow-sm">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="w-11 h-11 rounded-xl bg-white border border-sand-200 flex items-center justify-center text-ocean-600 hover:bg-ocean-600 hover:text-white hover:border-ocean-600 transition-all duration-300 shadow-sm">
+                                <i class="fa-brands fa-twitter"></i>
+                            </a>
+                            <a href="#" class="w-11 h-11 rounded-xl bg-white border border-sand-200 flex items-center justify-center text-ocean-600 hover:bg-ocean-600 hover:text-white hover:border-ocean-600 transition-all duration-300 shadow-sm">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-3 reveal reveal-delay-2">
+                    <div class="bg-white rounded-2xl p-8 lg:p-10 shadow-xl shadow-ocean-900/5 border border-sand-100">
+                        <h3 class="font-display text-2xl text-ocean-900 font-medium mb-2">Send Us a Message</h3>
+                        <p class="text-ocean-800/50 text-sm mb-8">Fill out the form below and we'll get back to you within 24 hours.</p>
+
+                        <form id="contactForm" onsubmit="handleSubmit(event)">
+                            <div class="grid sm:grid-cols-2 gap-5 mb-5">
+                                <div>
+                                    <label class="block text-ocean-800 text-xs font-medium mb-2 tracking-wide uppercase">Full Name</label>
+                                    <input type="text" class="form-input" placeholder="John Doe" required>
+                                </div>
+                                <div>
+                                    <label class="block text-ocean-800 text-xs font-medium mb-2 tracking-wide uppercase">Email Address</label>
+                                    <input type="email" class="form-input" placeholder="john@example.com" required>
+                                </div>
+                            </div>
+                            <div class="grid sm:grid-cols-2 gap-5 mb-5">
+                                <div>
+                                    <label class="block text-ocean-800 text-xs font-medium mb-2 tracking-wide uppercase">Phone Number</label>
+                                    <input type="tel" class="form-input" placeholder="+1 234 567 890">
+                                </div>
+                                <div>
+                                    <label class="block text-ocean-800 text-xs font-medium mb-2 tracking-wide uppercase">Destination Interest</label>
+                                    <select class="form-input">
+                                        <option value="">Select a destination</option>
+                                        <option>Bali, Indonesia</option>
+                                        <option>Santorini, Greece</option>
+                                        <option>Maldives</option>
+                                        <option>Dubai, UAE</option>
+                                        <option>Kyoto, Japan</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-ocean-800 text-xs font-medium mb-2 tracking-wide uppercase">Your Message</label>
+                                <textarea class="form-input resize-none" rows="4" placeholder="Tell us about your dream trip..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary w-full justify-center">
+                                <span>Send Message</span>
+                                <i class="fa-solid fa-paper-plane text-xs"></i>
+                            </button>
+                        </form>
+
+                        <div id="formSuccess" class="hidden text-center py-10">
+                            <div class="w-16 h-16 rounded-full bg-ocean-50 flex items-center justify-center mx-auto mb-4">
+                                <i class="fa-solid fa-check text-ocean-600 text-xl"></i>
+                            </div>
+                            <h4 class="font-display text-xl text-ocean-900 font-medium mb-2">Message Sent!</h4>
+                            <p class="text-ocean-800/60 text-sm">Thank you for reaching out. We'll be in touch soon.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-ocean-950 pt-20 pb-10 px-6 lg:px-12">
+        <div class="max-w-[1400px] mx-auto">
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div class="lg:col-span-1">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-ocean-500 to-ocean-700 flex items-center justify-center">
+                            <i class="fa-solid fa-plane-departure text-white text-sm"></i>
+                        </div>
+                        <span class="font-display text-xl font-semibold text-white tracking-wide">DOLLARMAN</span>
+                    </div>
+                    <p class="text-white/40 text-sm leading-relaxed mb-6">
+                        Crafting extraordinary travel experiences since 2010. Your journey to the world's most beautiful destinations starts here.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-display text-white font-medium mb-6 text-sm tracking-wider uppercase">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#about" class="footer-link text-sm">About Us</a></li>
+                        <li><a href="#destinations" class="footer-link text-sm">Destinations</a></li>
+                        <li><a href="#services" class="footer-link text-sm">Services</a></li>
+                        <li><a href="#gallery" class="footer-link text-sm">Gallery</a></li>
+                        <li><a href="#contact" class="footer-link text-sm">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-display text-white font-medium mb-6 text-sm tracking-wider uppercase">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="footer-link text-sm">Flight Booking</a></li>
+                        <li><a href="#" class="footer-link text-sm">Hotel Reservations</a></li>
+                        <li><a href="#" class="footer-link text-sm">Visa Assistance</a></li>
+                        <li><a href="#" class="footer-link text-sm">Custom Itineraries</a></li>
+                        <li><a href="#" class="footer-link text-sm">Travel Insurance</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-display text-white font-medium mb-6 text-sm tracking-wider uppercase">Newsletter</h4>
+                    <p class="text-white/40 text-sm mb-5 leading-relaxed">Subscribe for exclusive travel deals and inspiration.</p>
+                    <form onsubmit="event.preventDefault();" class="flex gap-2">
+                        <input type="email" placeholder="Your email" class="flex-1 px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white text-sm placeholder-white/30 focus:outline-none focus:border-ocean-500 transition-colors">
+                        <button type="submit" class="px-5 py-3 bg-ocean-600 hover:bg-ocean-500 text-white rounded-xl transition-colors">
+                            <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </button>
                     </form>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-content">
-                <div>
-                    <p>Professional photography and videography services dedicated to capturing your most important moments and telling your unique story.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                        <a href="#"><i class="fab fa-whatsapp"></i></a>
-                    </div>
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+                <p class="text-white/30 text-xs tracking-wide"> Dollarman Travel and Tour Consultancy. All rights reserved.</p>
+                <div class="flex items-center gap-6">
+                    <a href="#" class="text-white/30 hover:text-white/60 text-xs transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-white/30 hover:text-white/60 text-xs transition-colors">Terms of Service</a>
                 </div>
-                <div>
-                    <h4>Quick Links</h4>
-                    <ul style="list-style: none; margin-top: 15px;">
-                        <li style="margin-bottom: 10px;"><a href="#home" style="color: #ddd; text-decoration: none;">Home</a></li>
-                        <li style="margin-bottom: 10px;"><a href="#portfolio" style="color: #ddd; text-decoration: none;">Portfolio</a></li>
-                        <li style="margin-bottom: 10px;"><a href="#about" style="color: #ddd; text-decoration: none;">About</a></li>
-                        <li style="margin-bottom: 10px;"><a href="#services" style="color: #ddd; text-decoration: none;">Services</a></li>
-                        <li style="margin-bottom: 10px;"><a href="#pricing" style="color: #ddd; text-decoration: none;">Pricing</a></li>
-                        <li style="margin-bottom: 10px;"><a href="#contact" style="color: #ddd; text-decoration: none;">Contact</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4>Services</h4>
-                    <ul style="list-style: none; margin-top: 15px;">
-                        <li style="margin-bottom: 10px;">Wedding Photography</li>
-                        <li style="margin-bottom: 10px;">Commercial Videography</li>
-                        <li style="margin-bottom: 10px;">Portrait Sessions</li>
-                        <li style="margin-bottom: 10px;">Event Coverage</li>
-                        <li style="margin-bottom: 10px;">Photo & Video Editing</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2023 ARDDYS STUDIOS. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <button class="absolute top-6 right-6 text-white/60 hover:text-white text-3xl transition-colors z-10">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <img src="" alt="Gallery" id="lightboxImg">
+    </div>
+
     <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
-        const menuOverlay = document.getElementById('menuOverlay');
-        let isMenuOpen = false;
-        
-        function toggleMobileMenu() {
-            isMenuOpen = !isMenuOpen;
-            
-            if (isMenuOpen) {
-                // Open menu
-                navLinks.classList.add('active');
-                menuOverlay.classList.add('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-times"></i>';
-                document.body.style.overflow = 'hidden';
+        // ==================== NAV SCROLL ====================
+        const navbar = document.getElementById('navbar');
+        const hamburger = document.getElementById('hamburger');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                navbar.classList.add('scrolled');
+                hamburger.classList.add('text-ocean-900');
+                hamburger.classList.remove('text-white');
             } else {
-                // Close menu
-                navLinks.classList.remove('active');
-                menuOverlay.classList.remove('active');
-                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-                document.body.style.overflow = 'auto';
+                navbar.classList.remove('scrolled');
+                hamburger.classList.remove('text-ocean-900');
+                hamburger.classList.add('text-white');
             }
+        });
+
+        // ==================== MOBILE MENU ====================
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            const hamburger = document.getElementById('hamburger');
+            menu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+            document.body.style.overflow = menu.classList.contains('active') ? 'hidden' : '';
         }
-        
-        mobileMenuBtn.addEventListener('click', toggleMobileMenu);
-        menuOverlay.addEventListener('click', toggleMobileMenu);
-        
-        // Close mobile menu when clicking a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                if (isMenuOpen) {
-                    toggleMobileMenu();
+
+        // ==================== SCROLL REVEAL ====================
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
                 }
             });
-        });
-        
-        // Portfolio Filtering
-        const filterButtons = document.querySelectorAll('.filter-btn');
-        const portfolioItems = document.querySelectorAll('.portfolio-item');
-        
-        filterButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Update active button
-                filterButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-                
-                // Filter items
-                const filterValue = button.getAttribute('data-filter');
-                
-                portfolioItems.forEach(item => {
-                    if (filterValue === 'all' || item.getAttribute('data-category').includes(filterValue)) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
-                });
-            });
-        });
-        
-        // Auto-play videos on hover
-        portfolioItems.forEach(item => {
-            const video = item.querySelector('video');
-            if (video) {
-                item.addEventListener('mouseenter', () => {
-                    video.play();
-                });
-                item.addEventListener('mouseleave', () => {
-                    video.pause();
-                    video.currentTime = 0;
-                });
-            }
-        });
-        
-        // Package Pricing Toggle
-        const packageToggleButtons = document.querySelectorAll('.package-toggle-btn');
-        const pricingCards = document.querySelectorAll('.pricing-card');
-        
-        packageToggleButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Update active button
-                packageToggleButtons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-                
-                // Filter pricing cards
-                const packageType = button.getAttribute('data-type');
-                
-                pricingCards.forEach(card => {
-                    const cardType = card.getAttribute('data-type');
-                    if (packageType === 'photography' && cardType === 'photography') {
-                        card.style.display = 'block';
-                    } else if (packageType === 'videography' && cardType === 'videography') {
-                        card.style.display = 'block';
-                    } else if (packageType === 'combo' && cardType === 'combo') {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                });
-            });
-        });
-        
-        // Function to pre-select package in contact form
-        function selectPackage(packageName) {
-            const packageSelect = document.getElementById('packageSelect');
-            if (packageSelect) {
-                packageSelect.value = packageName;
-            }
-        }
-        
-        // Formspree Form Submission Handling
-        const contactForm = document.getElementById('contactForm');
-        const formMessage = document.getElementById('formMessage');
-        
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            // Change button text to show loading
-            const submitBtn = contactForm.querySelector('button[type="submit"]');
-            const originalBtnText = submitBtn.textContent;
-            submitBtn.textContent = 'Sending...';
-            submitBtn.disabled = true;
-            
-            try {
-                const formData = new FormData(contactForm);
-                const response = await fetch(contactForm.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-                
-                if (response.ok) {
-                    // Success
-                    formMessage.textContent = 'Thank you! Your message has been sent successfully. I will get back to you soon.';
-                    formMessage.className = 'form-message success';
-                    contactForm.reset();
-                } else {
-                    // Error
-                    const data = await response.json();
-                    if (data.errors) {
-                        formMessage.textContent = data.errors.map(error => error.message).join(', ');
-                    } else {
-                        formMessage.textContent = 'Oops! There was a problem submitting your form. Please try again.';
-                    }
-                    formMessage.className = 'form-message error';
-                }
-            } catch (error) {
-                // Network error
-                formMessage.textContent = 'Oops! There was a problem submitting your form. Please check your connection and try again.';
-                formMessage.className = 'form-message error';
-            } finally {
-                // Restore button
-                submitBtn.textContent = originalBtnText;
-                submitBtn.disabled = false;
-                
-                // Hide message after 10 seconds
-                setTimeout(() => {
-                    formMessage.style.display = 'none';
-                }, 10000);
-            }
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                if(targetId === '#') return;
-                
-                const targetElement = document.querySelector(targetId);
-                if(targetElement) {
-                    // Close mobile menu if open
-                    if (isMenuOpen) {
-                        toggleMobileMenu();
-                    }
-                    
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // ==================== STAT COUNTER ====================
+        const statNumbers = document.querySelectorAll('.stat-number');
+        let statsAnimated = false;
+
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !statsAnimated) {
+                    statsAnimated = true;
+                    statNumbers.forEach(stat => {
+                        const target = parseInt(stat.dataset.target);
+                        const duration = 2000;
+                        const start = performance.now();
+
+                        function update(currentTime) {
+                            const elapsed = currentTime - start;
+                            const progress = Math.min(elapsed / duration, 1);
+                            const eased = 1 - Math.pow(1 - progress, 3);
+                            const current = Math.floor(eased * target);
+                            stat.textContent = current.toLocaleString() + (target === 98 ? '%' : '+');
+                            if (progress < 1) requestAnimationFrame(update);
+                        }
+                        requestAnimationFrame(update);
                     });
                 }
             });
+        }, { threshold: 0.5 });
+
+        document.querySelector('.bg-ocean-900').querySelectorAll('.stat-number').forEach(s => {
+            statsObserver.observe(s.parentElement);
         });
-        
-        // Close menu on window resize (if resized to desktop)
+
+        // ==================== TESTIMONIAL SLIDER ====================
+        let currentSlide = 0;
+        const track = document.getElementById('testimonialTrack');
+        const dots = document.querySelectorAll('#testimonialDots button');
+
+        function getSlidesPerView() {
+            if (window.innerWidth >= 1024) return 3;
+            if (window.innerWidth >= 768) return 2;
+            return 1;
+        }
+
+        function getMaxSlide() {
+            return 4 - getSlidesPerView();
+        }
+
+        function updateSlider() {
+            const slidesPerView = getSlidesPerView();
+            const percentage = 100 / slidesPerView;
+            track.style.transform = `translateX(-${currentSlide * percentage}%)`;
+
+            dots.forEach((dot, i) => {
+                if (i === currentSlide) {
+                    dot.classList.remove('bg-ocean-200');
+                    dot.classList.add('bg-ocean-600');
+                } else {
+                    dot.classList.remove('bg-ocean-600');
+                    dot.classList.add('bg-ocean-200');
+                }
+            });
+        }
+
+        function nextTestimonial() {
+            currentSlide = Math.min(currentSlide + 1, getMaxSlide());
+            updateSlider();
+        }
+
+        function prevTestimonial() {
+            currentSlide = Math.max(currentSlide - 1, 0);
+            updateSlider();
+        }
+
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                currentSlide = i;
+                updateSlider();
+            });
+        });
+
         window.addEventListener('resize', () => {
-            if (window.innerWidth > 768 && isMenuOpen) {
-                toggleMobileMenu();
+            currentSlide = Math.min(currentSlide, getMaxSlide());
+            updateSlider();
+        });
+
+        setInterval(() => {
+            if (currentSlide < getMaxSlide()) {
+                currentSlide++;
+            } else {
+                currentSlide = 0;
             }
+            updateSlider();
+        }, 5000);
+
+        // ==================== LIGHTBOX ====================
+        function openLightbox(element) {
+            const img = element.querySelector('img');
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightboxImg');
+            lightboxImg.src = img.src;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // ==================== CONTACT FORM ====================
+        function handleSubmit(e) {
+            e.preventDefault();
+            const form = document.getElementById('contactForm');
+            const success = document.getElementById('formSuccess');
+
+            form.style.opacity = '0';
+            form.style.transform = 'translateY(-10px)';
+            form.style.transition = 'all 0.4s ease';
+
+            setTimeout(() => {
+                form.classList.add('hidden');
+                success.classList.remove('hidden');
+                success.style.opacity = '0';
+                success.style.transform = 'translateY(10px)';
+
+                requestAnimationFrame(() => {
+                    success.style.transition = 'all 0.5s ease';
+                    success.style.opacity = '1';
+                    success.style.transform = 'translateY(0)';
+                });
+            }, 400);
+        }
+
+        // ==================== PARALLAX ====================
+        const parallaxImages = document.querySelectorAll('.parallax-img');
+        window.addEventListener('scroll', () => {
+            parallaxImages.forEach(img => {
+                const rect = img.getBoundingClientRect();
+                const scrolled = window.scrollY;
+                const rate = scrolled * 0.03;
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    img.style.transform = `translateY(${rate}px) scale(1.02)`;
+                }
+            });
+        });
+
+        // ==================== SMOOTH SCROLL ====================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                }
+            });
         });
     </script>
 </body>

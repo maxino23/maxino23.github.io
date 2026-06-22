@@ -182,6 +182,165 @@
         }
         .portfolio-item {
             transition: opacity 0.4s ease, transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        /* ===== Live Artboard ===== */
+        .artboard-wrapper {
+            position: relative;
+            height: 600px;
+            overflow: hidden;
+        }
+        .artboard-wrapper::before,
+        .artboard-wrapper::after {
+            content: '';
+            position: absolute;
+            left: 0; right: 0;
+            height: 120px;
+            z-index: 10;
+            pointer-events: none;
+        }
+        .artboard-wrapper::before {
+            top: 0;
+            background: linear-gradient(to bottom, #0a0a0a 0%, transparent 100%);
+        }
+        .artboard-wrapper::after {
+            bottom: 0;
+            background: linear-gradient(to top, #0a0a0a 0%, transparent 100%);
+        }
+        .artboard-col {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .artboard-col-inner {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            will-change: transform;
+        }
+        .artboard-col-inner.scroll-up {
+            animation: scrollUp 22s linear infinite;
+        }
+        .artboard-col-inner.scroll-down {
+            animation: scrollDown 26s linear infinite;
+        }
+        .artboard-col-inner.scroll-up-slow {
+            animation: scrollUp 30s linear infinite;
+        }
+        .artboard-col:hover .artboard-col-inner {
+            animation-play-state: paused;
+        }
+        @keyframes scrollUp {
+            0%   { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
+        }
+        @keyframes scrollDown {
+            0%   { transform: translateY(-50%); }
+            100% { transform: translateY(0); }
+        }
+        .artboard-img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            border-radius: 14px;
+            cursor: pointer;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            opacity: 0.85;
+        }
+        .artboard-img:hover {
+            transform: scale(1.04);
+            opacity: 1;
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.45);
+        }
+
+        /* ===== Lightbox ===== */
+        #lightbox-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0,0,0,0.92);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.35s ease;
+        }
+        #lightbox-modal.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .lightbox-img-wrap {
+            position: relative;
+            max-width: 90vw;
+            max-height: 85vh;
+        }
+        .lightbox-img-wrap img {
+            max-width: 88vw;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 16px;
+            box-shadow: 0 0 60px rgba(139,92,246,0.35);
+            display: block;
+        }
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            z-index: 10;
+        }
+        .lightbox-nav:hover {
+            background: rgba(139,92,246,0.5);
+            border-color: rgba(139,92,246,0.8);
+        }
+        .lightbox-nav.prev { left: -64px; }
+        .lightbox-nav.next { right: -64px; }
+        .lightbox-close {
+            position: fixed;
+            top: 20px;
+            right: 24px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            z-index: 10;
+        }
+        .lightbox-close:hover {
+            background: rgba(236,72,153,0.5);
+        }
+        .lightbox-meta {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            z-index: 10;
+        }
+        @media (max-width: 768px) {
+            .lightbox-nav.prev { left: -10px; }
+            .lightbox-nav.next { right: -10px; }
+            .artboard-wrapper { height: 420px; }
         }
     </style>
 </head>
@@ -427,6 +586,288 @@
         </div>
     </section>
 
+    <!-- Live Artboard Section -->
+    <section id="artboard" class="py-24 bg-dark-900 relative overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-brand-purple rounded-full mix-blend-screen filter blur-[140px] opacity-10"></div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <span class="text-brand-pink text-sm font-semibold tracking-wider uppercase mb-3 block">Live Studio</span>
+                <h2 class="text-3xl md:text-5xl font-bold font-heading mb-4">Creative <span class="text-gradient">Artboard</span></h2>
+                <p class="text-gray-400 max-w-xl mx-auto">A living canvas of our work — hover to pause, click any piece to preview it in full.</p>
+            </div>
+
+            <!-- Artboard Grid: 3 scrolling columns -->
+            <div class="artboard-wrapper grid grid-cols-3 gap-3 md:gap-4">
+
+                <!-- Column 1: Scroll Up -->
+                <div class="artboard-col overflow-hidden">
+                    <div class="artboard-col-inner scroll-up">
+                        <!-- set 1 -->
+                        <img src="https://i.imgur.com/MKpUzPZ.jpeg" alt="Billboard 1" class="artboard-img" data-title="Metropolitan Ad Campaign" data-category="Billboard" data-src="https://i.imgur.com/MKpUzPZ.jpeg">
+                        <img src="https://i.imgur.com/UiCfCP4.jpeg" alt="Flyer 1" class="artboard-img" data-title="Creative Promo Flyer" data-category="Flyer" data-src="https://i.imgur.com/UiCfCP4.jpeg">
+                        <img src="https://i.imgur.com/9mDUjfp.jpeg" alt="Shirt 1" class="artboard-img" data-title="Custom Graphic Apparel" data-category="Shirt Design" data-src="https://i.imgur.com/9mDUjfp.jpeg">
+                        <img src="https://i.imgur.com/iMqc2M7.jpeg" alt="Car 1" class="artboard-img" data-title="Fleet Advertising Wrap" data-category="Car Branding" data-src="https://i.imgur.com/iMqc2M7.jpeg">
+                        <!-- set 2 (duplicate for infinite loop) -->
+                        <img src="https://i.imgur.com/MKpUzPZ.jpeg" alt="Billboard 1" class="artboard-img" data-title="Metropolitan Ad Campaign" data-category="Billboard" data-src="https://i.imgur.com/MKpUzPZ.jpeg">
+                        <img src="https://i.imgur.com/UiCfCP4.jpeg" alt="Flyer 1" class="artboard-img" data-title="Creative Promo Flyer" data-category="Flyer" data-src="https://i.imgur.com/UiCfCP4.jpeg">
+                        <img src="https://i.imgur.com/9mDUjfp.jpeg" alt="Shirt 1" class="artboard-img" data-title="Custom Graphic Apparel" data-category="Shirt Design" data-src="https://i.imgur.com/9mDUjfp.jpeg">
+                        <img src="https://i.imgur.com/iMqc2M7.jpeg" alt="Car 1" class="artboard-img" data-title="Fleet Advertising Wrap" data-category="Car Branding" data-src="https://i.imgur.com/iMqc2M7.jpeg">
+                    </div>
+                </div>
+
+                <!-- Column 2: Scroll Down -->
+                <div class="artboard-col overflow-hidden">
+                    <div class="artboard-col-inner scroll-down">
+                        <!-- set 1 -->
+                        <img src="https://i.imgur.com/T7uNkdl.jpeg" alt="Billboard 2" class="artboard-img" data-title="Outdoor Branding" data-category="Billboard" data-src="https://i.imgur.com/T7uNkdl.jpeg">
+                        <img src="https://i.imgur.com/5M1DJFA.jpeg" alt="Flyer 2" class="artboard-img" data-title="Event Announcement" data-category="Flyer" data-src="https://i.imgur.com/5M1DJFA.jpeg">
+                        <img src="https://i.imgur.com/wWRbJOt.jpeg" alt="Shirt 2" class="artboard-img" data-title="Urban Streetwear" data-category="Shirt Design" data-src="https://i.imgur.com/wWRbJOt.jpeg">
+                        <img src="https://i.imgur.com/7p3B8YU.jpeg" alt="Car 2" class="artboard-img" data-title="Vehicle Promo Wrapping" data-category="Car Branding" data-src="https://i.imgur.com/7p3B8YU.jpeg">
+                        <!-- set 2 (duplicate for infinite loop) -->
+                        <img src="https://i.imgur.com/T7uNkdl.jpeg" alt="Billboard 2" class="artboard-img" data-title="Outdoor Branding" data-category="Billboard" data-src="https://i.imgur.com/T7uNkdl.jpeg">
+                        <img src="https://i.imgur.com/5M1DJFA.jpeg" alt="Flyer 2" class="artboard-img" data-title="Event Announcement" data-category="Flyer" data-src="https://i.imgur.com/5M1DJFA.jpeg">
+                        <img src="https://i.imgur.com/wWRbJOt.jpeg" alt="Shirt 2" class="artboard-img" data-title="Urban Streetwear" data-category="Shirt Design" data-src="https://i.imgur.com/wWRbJOt.jpeg">
+                        <img src="https://i.imgur.com/7p3B8YU.jpeg" alt="Car 2" class="artboard-img" data-title="Vehicle Promo Wrapping" data-category="Car Branding" data-src="https://i.imgur.com/7p3B8YU.jpeg">
+                    </div>
+                </div>
+
+                <!-- Column 3: Scroll Up Slow -->
+                <div class="artboard-col overflow-hidden">
+                    <div class="artboard-col-inner scroll-up-slow">
+                        <!-- set 1 -->
+                        <img src="https://i.imgur.com/qO9iIj9.jpeg" alt="Billboard 3" class="artboard-img" data-title="Highway Exhibition" data-category="Billboard" data-src="https://i.imgur.com/qO9iIj9.jpeg">
+                        <img src="https://i.imgur.com/iMqc2M7.jpeg" alt="Car 1" class="artboard-img" data-title="Fleet Advertising Wrap" data-category="Car Branding" data-src="https://i.imgur.com/iMqc2M7.jpeg">
+                        <img src="https://i.imgur.com/UiCfCP4.jpeg" alt="Flyer 1" class="artboard-img" data-title="Creative Promo Flyer" data-category="Flyer" data-src="https://i.imgur.com/UiCfCP4.jpeg">
+                        <img src="https://i.imgur.com/9mDUjfp.jpeg" alt="Shirt 1" class="artboard-img" data-title="Custom Graphic Apparel" data-category="Shirt Design" data-src="https://i.imgur.com/9mDUjfp.jpeg">
+                        <!-- set 2 (duplicate for infinite loop) -->
+                        <img src="https://i.imgur.com/qO9iIj9.jpeg" alt="Billboard 3" class="artboard-img" data-title="Highway Exhibition" data-category="Billboard" data-src="https://i.imgur.com/qO9iIj9.jpeg">
+                        <img src="https://i.imgur.com/iMqc2M7.jpeg" alt="Car 1" class="artboard-img" data-title="Fleet Advertising Wrap" data-category="Car Branding" data-src="https://i.imgur.com/iMqc2M7.jpeg">
+                        <img src="https://i.imgur.com/UiCfCP4.jpeg" alt="Flyer 1" class="artboard-img" data-title="Creative Promo Flyer" data-category="Flyer" data-src="https://i.imgur.com/UiCfCP4.jpeg">
+                        <img src="https://i.imgur.com/9mDUjfp.jpeg" alt="Shirt 1" class="artboard-img" data-title="Custom Graphic Apparel" data-category="Shirt Design" data-src="https://i.imgur.com/9mDUjfp.jpeg">
+                    </div>
+                </div>
+
+            </div><!-- /artboard-wrapper -->
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox-modal" role="dialog" aria-modal="true" aria-label="Image Preview">
+        <button class="lightbox-close" id="lightbox-close" title="Close"><i class="fas fa-times"></i></button>
+        <div class="lightbox-img-wrap">
+            <button class="lightbox-nav prev" id="lightbox-prev" title="Previous"><i class="fas fa-chevron-left"></i></button>
+            <img id="lightbox-img" src="" alt="Preview">
+            <button class="lightbox-nav next" id="lightbox-next" title="Next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="lightbox-meta">
+            <span id="lightbox-category" class="text-brand-purple text-sm font-semibold uppercase tracking-widest block mb-1"></span>
+            <h3 id="lightbox-title" class="text-white text-xl font-bold font-heading"></h3>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 relative overflow-hidden">
+        <!-- Background decorative glows -->
+        <div class="absolute top-1/3 left-0 w-80 h-80 bg-brand-pink rounded-full mix-blend-screen filter blur-[120px] opacity-15 pointer-events-none"></div>
+        <div class="absolute bottom-1/3 right-0 w-80 h-80 bg-brand-purple rounded-full mix-blend-screen filter blur-[120px] opacity-15 pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Header -->
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <span class="text-brand-purple text-sm font-semibold tracking-wider uppercase mb-3 block">About Ricadcom</span>
+                <h2 class="text-4xl md:text-5xl font-extrabold mb-6 font-heading">
+                    Ricadcom <span class="text-gradient">Enterprise</span>
+                </h2>
+                <p class="text-gray-400 text-lg font-light leading-relaxed">
+                    Your trusted partner for high-quality printing, branding, and advertising services in Kumasi, Ghana. Located at Buokrom F Line, we specialize in translating creative concepts into powerful visual realities that make your business stand out.
+                </p>
+            </div>
+
+            <!-- Services Overview Grid -->
+            <div class="mb-24">
+                <div class="text-center mb-12">
+                    <h3 class="text-2xl md:text-3xl font-bold font-heading">What We <span class="text-gradient">Specialize In</span></h3>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service 1: 3D Signboards -->
+                    <div class="glass-panel p-8 rounded-2xl border-t border-l border-white/5 hover:border-brand-purple/30 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-xl bg-brand-purple/10 flex items-center justify-center text-brand-purple mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-shapes text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4 font-heading text-white">3D Signboards & Signage</h4>
+                        <ul class="space-y-2.5 text-gray-400 text-sm">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-purple"></span> Acrylic 3D Letter Signs</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-purple"></span> LED Illuminated Signs</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-purple"></span> Reception Signs</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-purple"></span> Outdoor Business Signboards</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-purple"></span> Directional & Wayfinding</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 2: Printing Services -->
+                    <div class="glass-panel p-8 rounded-2xl border-t border-l border-white/5 hover:border-brand-pink/30 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-xl bg-brand-pink/10 flex items-center justify-center text-brand-pink mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-print text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4 font-heading text-white">Printing Services</h4>
+                        <ul class="space-y-2.5 text-gray-400 text-sm">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-pink"></span> Large Format Printing</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-pink"></span> Flex Banners</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-pink"></span> Vinyl Printing</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-pink"></span> Posters & Flyers</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-pink"></span> Stickers & Labels</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 3: Corporate Branding -->
+                    <div class="glass-panel p-8 rounded-2xl border-t border-l border-white/5 hover:border-brand-orange/30 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-xl bg-brand-orange/10 flex items-center justify-center text-brand-orange mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-briefcase text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4 font-heading text-white">Corporate Branding</h4>
+                        <ul class="space-y-2.5 text-gray-400 text-sm">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Business Cards</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Letterheads & Company Profiles</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Envelopes & ID Cards</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Branded Office Stationery</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 4: Promotional Materials -->
+                    <div class="glass-panel p-8 rounded-2xl border-t border-l border-white/5 hover:border-brand-purple/30 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-xl bg-brand-purple/10 flex items-center justify-center text-brand-purple mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-bullhorn text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4 font-heading text-white">Promotional Materials</h4>
+                        <ul class="space-y-2.5 text-gray-400 text-sm">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-purple"></span> Roll-Up Banners</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-purple"></span> Exhibition Displays</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-purple"></span> Pull-Up Banners</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-purple"></span> Event & Marketing Materials</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 5: Vehicle Branding -->
+                    <div class="glass-panel p-8 rounded-2xl border-t border-l border-white/5 hover:border-brand-pink/30 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-xl bg-brand-pink/10 flex items-center justify-center text-brand-pink mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-car text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4 font-heading text-white">Vehicle Branding</h4>
+                        <ul class="space-y-2.5 text-gray-400 text-sm">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-pink"></span> Car Branding & Wrapping</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-pink"></span> Fleet Advertising Wrap</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-pink"></span> Reflective Safety Stickers</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 6: Customized Products -->
+                    <div class="glass-panel p-8 rounded-2xl border-t border-l border-white/5 hover:border-brand-orange/30 transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-xl bg-brand-orange/10 flex items-center justify-center text-brand-orange mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-tshirt text-xl"></i>
+                        </div>
+                        <h4 class="text-xl font-bold mb-4 font-heading text-white">Customized Products</h4>
+                        <ul class="space-y-2.5 text-gray-400 text-sm">
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Branded T-Shirts & Caps</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Customized Mugs</li>
+                            <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-brand-orange"></span> Souvenirs & Corporate Gifts</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mission & Why Choose Us Grid -->
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <!-- Left: Mission & Motto -->
+                <div class="space-y-8">
+                    <div class="glass-panel p-8 md:p-10 rounded-3xl border-t border-l border-white/10 shadow-xl">
+                        <h3 class="text-2xl font-bold mb-4 font-heading text-gradient">Our Mission</h3>
+                        <p class="text-gray-300 font-light leading-relaxed">
+                            To provide innovative, reliable, and high-quality printing and branding solutions that help our clients communicate effectively and grow their brands.
+                        </p>
+                    </div>
+
+                    <div class="relative rounded-3xl overflow-hidden p-[1px] group">
+                        <span class="absolute inset-0 bg-gradient-to-r from-brand-purple via-brand-pink to-brand-orange opacity-70"></span>
+                        <div class="relative bg-dark-900 p-8 md:p-10 rounded-[23px] flex flex-col justify-center">
+                            <i class="fas fa-quote-left text-brand-purple text-4xl mb-4 opacity-50"></i>
+                            <p class="text-xl font-medium italic text-white leading-relaxed">
+                                "Bringing Your Brand to Life Through Quality Printing and Creative Design."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Why Choose Us -->
+                <div class="glass-panel p-8 md:p-10 rounded-3xl border-t border-l border-white/10 shadow-xl">
+                    <h3 class="text-2xl font-bold mb-6 font-heading text-gradient">Why Choose Ricadcom?</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-brand-purple/10 flex items-center justify-center text-brand-purple shrink-0 mt-0.5">
+                                <i class="fas fa-check text-xs"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-white mb-1">Professional Designs</h5>
+                                <p class="text-xs text-gray-400">Creative design solutions built to convert.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-brand-pink/10 flex items-center justify-center text-brand-pink shrink-0 mt-0.5">
+                                <i class="fas fa-check text-xs"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-white mb-1">High-End Gear</h5>
+                                <p class="text-xs text-gray-400">Equipped with state-of-the-art printing machines.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-brand-orange/10 flex items-center justify-center text-brand-orange shrink-0 mt-0.5">
+                                <i class="fas fa-check text-xs"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-white mb-1">Affordable Pricing</h5>
+                                <p class="text-xs text-gray-400">Competitive rates for all scales of business.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-brand-purple/10 flex items-center justify-center text-brand-purple shrink-0 mt-0.5">
+                                <i class="fas fa-check text-xs"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-white mb-1">Fast Delivery</h5>
+                                <p class="text-xs text-gray-400">Quick turnarounds to keep your projects on timeline.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-brand-pink/10 flex items-center justify-center text-brand-pink shrink-0 mt-0.5">
+                                <i class="fas fa-check text-xs"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-white mb-1">Experienced Team</h5>
+                                <p class="text-xs text-gray-400">Dedicated professionals at every step of design.</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded-full bg-brand-orange/10 flex items-center justify-center text-brand-orange shrink-0 mt-0.5">
+                                <i class="fas fa-check text-xs"></i>
+                            </div>
+                            <div>
+                                <h5 class="font-bold text-white mb-1">Guaranteed Satisfaction</h5>
+                                <p class="text-xs text-gray-400">We work with you until it's absolutely perfect.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section with Formspree -->
     <section id="contact" class="py-24 relative overflow-hidden">
         <!-- Glow behind form -->
@@ -454,12 +895,24 @@
                         </div>
                         <div class="flex items-start gap-4">
                             <div class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-gray-300 shrink-0">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-sm font-medium text-gray-400 mb-1">Call us at</h4>
+                                <div class="flex flex-col">
+                                    <a href="tel:0241032757" class="text-lg font-semibold hover:text-brand-purple transition-colors">024 103 2757</a>
+                                    <a href="tel:0507037878" class="text-lg font-semibold hover:text-brand-purple transition-colors">050 703 7878</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 rounded-full glass-panel flex items-center justify-center text-gray-300 shrink-0">
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div>
                                 <h4 class="text-sm font-medium text-gray-400 mb-1">Based in</h4>
                                 <a href="https://maps.app.goo.gl/Mjw26ErRP1H7FYfm6" target="_blank" rel="noopener noreferrer" class="text-lg font-semibold hover:text-brand-purple transition-colors inline-flex items-center gap-1.5 group">
-                                    <span>Ashanti Region, Ghana</span>
+                                    <span>Buokrom F Line, Kumasi</span>
                                     <i class="fas fa-external-link-alt text-xs opacity-50 group-hover:opacity-100 transition-opacity"></i>
                                 </a>
                             </div>
@@ -730,6 +1183,113 @@
                     }, 5000);
                 }
             }
+        });
+
+        // ==========================================
+        // Lightbox Gallery
+        // ==========================================
+        const lightboxModal   = document.getElementById('lightbox-modal');
+        const lightboxImg     = document.getElementById('lightbox-img');
+        const lightboxTitle   = document.getElementById('lightbox-title');
+        const lightboxCategory= document.getElementById('lightbox-category');
+        const lightboxClose   = document.getElementById('lightbox-close');
+        const lightboxPrev    = document.getElementById('lightbox-prev');
+        const lightboxNext    = document.getElementById('lightbox-next');
+
+        // Build master image list from both portfolio items and artboard images
+        let galleryItems = [];
+        let currentIndex = 0;
+
+        function buildGallery() {
+            galleryItems = [];
+
+            // Collect from portfolio grid (only unique images, ignore the artboard)
+            document.querySelectorAll('#portfolio-grid .portfolio-item img').forEach(img => {
+                const card = img.closest('.portfolio-item');
+                const titleEl   = card ? card.querySelector('h3') : null;
+                const catEl     = card ? card.querySelector('span') : null;
+                galleryItems.push({
+                    src:      img.src,
+                    title:    titleEl  ? titleEl.innerText  : '',
+                    category: catEl    ? catEl.innerText    : ''
+                });
+            });
+
+            // Collect from artboard (only unique ones – use data-src)
+            const seen = new Set(galleryItems.map(i => i.src));
+            document.querySelectorAll('.artboard-img[data-src]').forEach(img => {
+                const src = img.getAttribute('data-src');
+                if (!seen.has(src)) {
+                    seen.add(src);
+                    galleryItems.push({
+                        src:      src,
+                        title:    img.dataset.title    || '',
+                        category: img.dataset.category || ''
+                    });
+                }
+            });
+        }
+
+        function openLightbox(index) {
+            buildGallery();
+            currentIndex = Math.max(0, Math.min(index, galleryItems.length - 1));
+            updateLightbox();
+            lightboxModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            lightboxModal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function updateLightbox() {
+            const item = galleryItems[currentIndex];
+            if (!item) return;
+            lightboxImg.src           = item.src;
+            lightboxTitle.textContent = item.title;
+            lightboxCategory.textContent = item.category;
+            lightboxPrev.style.visibility = currentIndex === 0 ? 'hidden' : 'visible';
+            lightboxNext.style.visibility = currentIndex === galleryItems.length - 1 ? 'hidden' : 'visible';
+        }
+
+        // Open from portfolio grid
+        document.querySelectorAll('#portfolio-grid .portfolio-item').forEach((card, idx) => {
+            card.addEventListener('click', () => openLightbox(idx));
+        });
+
+        // Open from artboard (only first set, not duplicates — use data-src to find index)
+        document.querySelectorAll('.artboard-img[data-src]').forEach(img => {
+            img.addEventListener('click', () => {
+                buildGallery();
+                const src = img.getAttribute('data-src');
+                const idx = galleryItems.findIndex(i => i.src === src);
+                openLightbox(idx >= 0 ? idx : 0);
+            });
+        });
+
+        // Close
+        lightboxClose.addEventListener('click', closeLightbox);
+        lightboxModal.addEventListener('click', e => {
+            if (e.target === lightboxModal) closeLightbox();
+        });
+
+        // Navigation
+        lightboxPrev.addEventListener('click', e => {
+            e.stopPropagation();
+            if (currentIndex > 0) { currentIndex--; updateLightbox(); }
+        });
+        lightboxNext.addEventListener('click', e => {
+            e.stopPropagation();
+            if (currentIndex < galleryItems.length - 1) { currentIndex++; updateLightbox(); }
+        });
+
+        // Keyboard
+        document.addEventListener('keydown', e => {
+            if (!lightboxModal.classList.contains('active')) return;
+            if (e.key === 'Escape')     closeLightbox();
+            if (e.key === 'ArrowLeft')  { if (currentIndex > 0) { currentIndex--; updateLightbox(); } }
+            if (e.key === 'ArrowRight') { if (currentIndex < galleryItems.length - 1) { currentIndex++; updateLightbox(); } }
         });
     </script>
 </body>

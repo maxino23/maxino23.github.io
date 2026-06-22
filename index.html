@@ -342,6 +342,83 @@
             .lightbox-nav.next { right: -10px; }
             .artboard-wrapper { height: 420px; }
         }
+
+        /* ===== Theme Variables ===== */
+        :root {
+            --bg-primary:    #0a0a0a;
+            --bg-secondary:  #141414;
+            --bg-tertiary:   #1e1e1e;
+            --text-primary:  #ffffff;
+            --text-secondary:#d1d5db;
+            --text-muted:    #6b7280;
+            --glass-bg:      rgba(20,20,20,0.6);
+            --glass-border:  rgba(255,255,255,0.05);
+            --input-bg:      rgba(255,255,255,0.03);
+            --input-border:  rgba(255,255,255,0.1);
+            --scrollbar-track: #0a0a0a;
+            --scrollbar-thumb: #1e1e1e;
+            --artboard-fade-color: #0a0a0a;
+            --nav-scrolled-bg: rgba(10,10,10,0.85);
+        }
+        html.light-mode {
+            --bg-primary:    #f3f4f6;
+            --bg-secondary:  #ffffff;
+            --bg-tertiary:   #e5e7eb;
+            --text-primary:  #111827;
+            --text-secondary:#374151;
+            --text-muted:    #6b7280;
+            --glass-bg:      rgba(255,255,255,0.65);
+            --glass-border:  rgba(0,0,0,0.06);
+            --input-bg:      rgba(0,0,0,0.03);
+            --input-border:  rgba(0,0,0,0.12);
+            --scrollbar-track: #e5e7eb;
+            --scrollbar-thumb: #d1d5db;
+            --artboard-fade-color: #f3f4f6;
+            --nav-scrolled-bg: rgba(255,255,255,0.88);
+        }
+
+        /* Apply CSS variables to elements */
+        body                { background-color: var(--bg-primary); color: var(--text-primary); transition: background-color 0.4s ease, color 0.4s ease; }
+        .glass-panel        { background: var(--glass-bg); border-color: var(--glass-border); }
+        .glass-input        { background: var(--input-bg); border-color: var(--input-border); color: var(--text-primary); }
+        ::-webkit-scrollbar-track  { background: var(--scrollbar-track); }
+        ::-webkit-scrollbar-thumb  { background: var(--scrollbar-thumb); }
+        .nav-scrolled       { background: var(--nav-scrolled-bg) !important; }
+        .text-gray-300      { color: var(--text-secondary) !important; }
+        .text-gray-400      { color: var(--text-muted) !important; }
+        .text-gray-500      { color: var(--text-muted) !important; }
+        html.light-mode .bg-dark-800\/50 { background: rgba(255,255,255,0.5); }
+        html.light-mode .bg-dark-900     { background: var(--bg-primary); }
+        html.light-mode .artboard-wrapper::before { background: linear-gradient(to bottom, var(--artboard-fade-color) 0%, transparent 100%); }
+        html.light-mode .artboard-wrapper::after  { background: linear-gradient(to top,   var(--artboard-fade-color) 0%, transparent 100%); }
+        html.light-mode .bg-dark-700     { background: var(--bg-tertiary); }
+        html.light-mode #lightbox-modal  { background: rgba(255,255,255,0.92); }
+        html.light-mode .lightbox-nav,
+        html.light-mode .lightbox-close  { background: rgba(0,0,0,0.06); border-color: rgba(0,0,0,0.12); color: #111; }
+        html.light-mode #lightbox-img    { box-shadow: 0 0 60px rgba(139,92,246,0.2); }
+        html.light-mode select option    { background-color: #fff; color: #111; }
+
+        /* Theme Toggle Button */
+        .theme-toggle-btn {
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            border: 1px solid var(--glass-border);
+            background: var(--glass-bg);
+            color: var(--text-primary);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+        .theme-toggle-btn:hover {
+            background: rgba(139,92,246,0.25);
+            border-color: rgba(139,92,246,0.6);
+            box-shadow: 0 0 14px rgba(139,92,246,0.4);
+        }
+        .theme-toggle-btn .icon-moon { display: block; }
+        .theme-toggle-btn .icon-sun  { display: none; }
+        html.light-mode .theme-toggle-btn .icon-moon { display: none; }
+        html.light-mode .theme-toggle-btn .icon-sun  { display: block; }
     </style>
 </head>
 <body class="antialiased selection:bg-brand-purple selection:text-white">
@@ -361,19 +438,30 @@
                 </a>
 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center space-x-8">
+                <div class="hidden md:flex items-center space-x-6">
                     <a href="#services" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Services</a>
                     <a href="#work" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Work</a>
                     <a href="#about" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">About</a>
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle" class="theme-toggle-btn" title="Toggle light/dark mode" aria-label="Toggle theme">
+                        <i class="fas fa-moon icon-moon text-sm"></i>
+                        <i class="fas fa-sun icon-sun text-sm"></i>
+                    </button>
                     <a href="#contact" class="px-6 py-2.5 rounded-full text-sm font-medium bg-white text-black hover:bg-gray-200 transition-all transform hover:scale-105 shadow-[0_0_15px_rgba(255,255,255,0.2)]">
                         Start Project
                     </a>
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-btn" class="md:hidden text-gray-300 hover:text-white focus:outline-none p-2">
-                    <i class="fas fa-bars text-2xl"></i>
-                </button>
+                <div class="flex items-center gap-3 md:hidden">
+                    <button id="theme-toggle-mobile" class="theme-toggle-btn w-9 h-9" title="Toggle theme" aria-label="Toggle theme">
+                        <i class="fas fa-moon icon-moon text-sm"></i>
+                        <i class="fas fa-sun icon-sun text-sm"></i>
+                    </button>
+                    <button id="mobile-btn" class="text-gray-300 hover:text-white focus:outline-none p-2">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -1052,6 +1140,40 @@
 
     <!-- Scripts -->
     <script>
+        // ==========================================
+        // Theme Toggle Logic
+        // ==========================================
+        const themeToggleBtn = document.getElementById('theme-toggle');
+        const themeToggleMobileBtn = document.getElementById('theme-toggle-mobile');
+        const htmlElement = document.documentElement;
+
+        // Load theme from localStorage or system preference
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'light') {
+            htmlElement.classList.add('light-mode');
+        } else if (currentTheme === 'dark') {
+            htmlElement.classList.remove('light-mode');
+        } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+            htmlElement.classList.add('light-mode');
+        }
+
+        function toggleTheme() {
+            if (htmlElement.classList.contains('light-mode')) {
+                htmlElement.classList.remove('light-mode');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                htmlElement.classList.add('light-mode');
+                localStorage.setItem('theme', 'light');
+            }
+        }
+
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', toggleTheme);
+        }
+        if (themeToggleMobileBtn) {
+            themeToggleMobileBtn.addEventListener('click', toggleTheme);
+        }
+
         // Navbar Scroll Effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
